@@ -1,6 +1,9 @@
 // Common
 @import './common/base.scss';
 @import './common/normalize.scss';
-@import './common/variables.scss'
+@import './common/variables.scss';
+@import './common/_mixins';
+@import './common/container.scss';
+@import './common/fonts.scss';
 // Components
 // Plagins
