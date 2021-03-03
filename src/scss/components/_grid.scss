@@ -1,0 +1,35 @@
+.grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, 280px);
+  grid-template-rows: 1fr;
+
+  @include for-size(tablet) {
+    grid-template-columns: repeat(auto-fit, 294px);
+  }
+
+  @include for-size(desktop) {
+    grid-template-columns: repeat(auto-fit, 274px);
+  }
+}
+// для примера
+.grid__item {
+  display: grid;
+  grid-template-rows: 398px 32px;
+}
+.grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.film__title {
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 7px;
+}
+
+.film__text {
+  font-size: 12px;
+  line-height: 16px;
+}

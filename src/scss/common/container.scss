@@ -5,15 +5,15 @@
   margin-left: auto;
 
   @include for-size(mobile) {
-    width: 280px;
+    width: 300px;
   }
   @include for-size(tablet) {
-    width: 618px;
+    width: 648px;
     padding-right: 15px;
     padding-left: 15px;
   }
   @include for-size(desktop) {
-    width: 882px;
+    width: 922px;
     padding-right: 15px;
     padding-left: 15px;
   }
