@@ -12,6 +12,8 @@ const apiService = {
       );
       const { results } = data;
 
+      apiService.getYear(results);
+
       return results;
     } catch (error) {
       console.log(error);
@@ -23,6 +25,7 @@ const apiService = {
         `/search/movie?api_key=${apiService.apiKey}&language=en-US&query=${apiService.searchQuery}&page=${apiService.page}&include_adult=false&`,
       );
       const { results } = data;
+      apiService.getYear(results);
 
       return results;
     } catch (error) {
@@ -57,6 +60,12 @@ const apiService = {
     } catch (error) {
       console.log(error);
     }
+  },
+  getYear(data) {
+    data.map(film => {
+      const year = film.release_date.slice(0, -6);
+      film.release_date = year;
+    });
   },
   get query() {
     return this.searchQuery;

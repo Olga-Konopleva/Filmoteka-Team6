@@ -1,3 +1,3 @@
 export const refs = {
-  galleryContainer: document.querySelector('.gallery'),
+  galleryContainer: document.querySelector('.gallery__list'),
 };
