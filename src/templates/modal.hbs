@@ -1,14 +1,33 @@
-{{#each this}}
-<img src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{poster_path}}" alt="poster ${{original_title}}" width="300px">
-<h2>${{title}}</h2>
-<ul>
-    <li>Vote/Votes ${{vote_average}}/${{vote_count}}</li>
-    <li>Popularity ${{popularity}}</li>
-    <li>Original Title ${{original_title}}</li>
-    <li>Genre ${{genres[1]}</li>
-</ul>
-<h3>About</h3>
-<p>${{overview}}</p>
-<button></button>
-<button></button>
-{{/each}}
+
+<div class="document" role="document">
+    <header class="modal__header">
+        <button class="modal__close" aria-label="Close modal" aria-controls="modal__container1" data-micromodal-close></button>
+ 
+    <img class="modal__img" src='https://www.themoviedb.org/t/p/w220_and_h330_face/{{this.poster_path}}' alt='poster {{this.original_title}}'>
+    </header>
+
+    <main class="modal__content" id="modal-1-content">
+                   
+        <h2 class="modal__title">{{this.title}}</h2>
+        <div class="modal__information">
+            <ul class="modal__information--text1">
+                <li class="modal__information--list">Vote/Votes</li>
+                <li class="modal__information--list">Popularity</li>
+                <li class="modal__information--list">OriginalTitle</li>
+                <li class="modal__information--list">Genre</li>
+            </ul>
+            <ul class="modal__information--text2">
+                <li class="modal__information--list"><span class="modal__information--block">{{vote_average}}</span> / {{vote_count}}</li>
+                <li class="modal__information--list">{{popularity}}</li>
+                <li class="modal__information--list">{{original_title}}</li>
+                <li class="modal__information--list">{{genres}}</li>
+            </ul>
+        </div>
+        <h3 class="modal__title2"><b>About</b></h3>
+        <p class="modal__text"><b>{{overview}}</b></p>
+        <button class="modal__button">ADD TO WATCHED</button>
+        <button class="modal__button">ADD TO QUEUE</button>
+                   
+    </main>
+</div>
+

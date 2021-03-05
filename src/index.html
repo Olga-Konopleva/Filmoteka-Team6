@@ -7,49 +7,13 @@
     <title>Filmoteka</title>
   </head>
   <body>
+  <!-- Модальное окно -->
   <button class="btn-trigger" data-micromodal-trigger="modal-1">Trigger Modal</button>
-  
   <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
       <div class="modal__container container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title"
         aria-describedby="modal-1-content">
-
-
-        <div class="document" role="document">
-          <header class="modal__header">
-            <button class="modal__close" aria-label="Close modal" aria-controls="modal__container1"
-              data-micromodal-close></button> 
-            <img class="modal__img" src="./images/Rectangle.png" alt="poster of the film"> 
-          </header>
-
-          <main class="modal__content" id="modal-1-content">
-            <h2 class="modal__title">НАЗВАНИЕ ФИЛЬМА</h2>
-            <div class="modal__information">
-            <ul class="modal__information--text1">
-              <li class="modal__information--list">Vote / Votes</li>
-              <li class="modal__information--list">Popularity</li>
-              <li class="modal__information--list">Original Title</li>
-              <li class="modal__information--list">Genre</li>
-            </ul>
-            <ul class="modal__information--text2">
-              <li class="modal__information--list"><span class="modal__block">7.2</span> / 1260</li>
-              <li class="modal__information--list">100.2</li>
-              <li class="modal__information--list">A FISTFUL OF LEAD</li>
-              <li class="modal__information--list">Western</li>
-            </ul>
-          </div>
-            <h3 class="modal__title2"><b>About</b></h3>
-            <p class="modal__text"><b>Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the
-            gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the
-            abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same
-            bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they’ve
-            been double crossed – but by who and how?</b></p>
-            <button>ADD TO WATCHED</button>
-            <button>ADD TO QUEUE</button>
-          </main>
-          <!-- <footer class="modal__footer">
-          </footer> -->
-        </div>
+        <!-- сюда рендериться разметка -->
       </div>
     </div>
   </div>

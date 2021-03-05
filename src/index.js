@@ -1,2 +1,2 @@
 import './scss/main.scss';
-import './js/modal-single';
+import './js/modal-single-film';
