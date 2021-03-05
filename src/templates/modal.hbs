@@ -1,0 +1,14 @@
+{{#each this}}
+<img src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{poster_path}}" alt="poster ${{original_title}}" width="300px">
+<h2>${{title}}</h2>
+<ul>
+    <li>Vote/Votes ${{vote_average}}/${{vote_count}}</li>
+    <li>Popularity ${{popularity}}</li>
+    <li>Original Title ${{original_title}}</li>
+    <li>Genre ${{genres[1]}</li>
+</ul>
+<h3>About</h3>
+<p>${{overview}}</p>
+<button></button>
+<button></button>
+{{/each}}
