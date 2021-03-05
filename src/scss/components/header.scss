@@ -36,7 +36,7 @@
     }
 
     @include for-size(desktop) {
-      max-width: 1024px;
+      max-width: inherit;
       background-image: linear-gradient($headerBg, $headerBg),
         url('../images/desktop_home@1x.jpg');
 
