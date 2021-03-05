@@ -1,6 +1,5 @@
 import apiService from '../apiServises/api';
 import { updateGalleryMarkup } from './update-gallery-markup';
 
-apiService.findFilm().then(results => {
-  updateGalleryMarkup(results);
-});
+//для проверки данных
+apiService.getUpdatedPopularFilms().then(updateGalleryMarkup);
