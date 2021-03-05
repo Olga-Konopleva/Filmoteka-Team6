@@ -1,0 +1,13 @@
+{{#each this}}
+<li class="gallery__film grid__item" data-id:{{id}}>
+    <img class="film__image" src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{poster_path}}"
+        alt="{{original_title}}" width="274" height="398">
+    <h2 class="film__title">{{original_title}}</h2>
+    <ul class="film__genres">
+        {{#each genres}}
+        <li>{{name}}</li>
+        {{/each}}
+    </ul>
+    <p class="film__date">{{release_date}}</p>
+</li>
+{{/each}}
