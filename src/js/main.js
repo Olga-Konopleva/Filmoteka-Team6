@@ -3,6 +3,9 @@ import { updateGalleryMarkup } from './update-gallery-markup';
 
 console.log(apiService);
 
-apiService.findFilm().then(results => {
+apiService.showPopularFilms().then(results => {
+  updateGalleryMarkup(results);
+});
+apiService.showPopularFilms().then(results => {
   updateGalleryMarkup(results);
 });

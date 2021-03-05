@@ -12,8 +12,6 @@ const apiService = {
       );
       const { results } = data;
 
-      this.incrementPage();
-
       return results;
     } catch (error) {
       console.log(error);
