@@ -54,7 +54,7 @@
   box-sizing: border-box;
 }
 
-.document {
+.modal__document {
   @include for-size(tablet) {  
   display: flex;
   } 
@@ -119,15 +119,16 @@
   color: $gray-text-modal;
 
   @include for-size(mobile) {
-  margin-right: 39px ;
+  width: 108px;
+    padding-bottom: 10px;
   }
 
-  @include for-size(tablet) {
-  margin-top: 20px;
-  }
+  // @include for-size(tablet) {
+  // margin-top: 20px;
+  // }
 
   @include for-size(desktop) {
-   margin-right:83px ;
+   width: 152px;
   }
 }
 

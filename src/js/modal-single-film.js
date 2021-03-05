@@ -1,3 +1,5 @@
+// пока еще сырой вариант по конкретному id
+
 import MicroModal from 'micromodal';
 import axios from 'axios';
 import filmTpl from '../templates/modal.hbs';
@@ -17,7 +19,7 @@ buttonModal.addEventListener('click', () => {
     const { data } = await axios.get(
         `/movie/${id}?api_key=${apiKey}&language=en-US`,
     );
-    // console.log(data);
+     console.log(data);
         updateData(data);
     };
     showFilmDetails(587807);
