@@ -78,7 +78,7 @@ export default {
     }
   },
 
-   // Функція повертає id всіх фільмів
+  // Функція повертає id всіх фільмів
   async getFilmiIdList(url) {
     try {
       const { data } = await axios.get(url);
@@ -97,7 +97,7 @@ export default {
       // перетворюємо release_date в формат '***' (рік)
       film.release_date = film.release_date.slice(0, -6);
       // перетворюємо масив об'єктів з жанрами з формате [{ id: name},..., { id: name} ] в формат [name, ..., name]
-      film.genres = film.genres.map(({ name }) => name);
+      film.genres = this.updateGenre(film.genres);
       // додаємо змінені об'єкти в  масив
       filmsList.push(film);
       return filmsList;
@@ -106,7 +106,7 @@ export default {
   },
 
   //согласно макета если жанров 3 -высвечиваются все 3 жанра,если больше - 2 слова плюс Other
-  getGenre(genres) {
+  updateGenre(genres) {
     const result = genres.reduce((genresList, genre, index) => {
       const { name } = genre;
       if (index === 3) {
