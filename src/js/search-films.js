@@ -1,5 +1,5 @@
 import api from '../apiServises/api';
-import fetchFilms from './fetch-films';
+import showFilmsByQuery from './Films-by-query';
 import refs from './refs';
 refs.searchForm.addEventListener('submit', onFormSubmit);
 
@@ -9,5 +9,5 @@ function onFormSubmit(event) {
   api.query = form.elements.query.value;
   refs.gallery.textContent = '';
   api.resetPage();
-  fetchFilms();
+  showFilmsByQuery();
 }
