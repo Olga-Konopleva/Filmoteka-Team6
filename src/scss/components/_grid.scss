@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  margin-bottom: 40px;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, 280px);
+  grid-template-rows: 1fr;
+
+  @include for-size(tablet) {
+    margin-bottom: 50px;
+    grid-template-columns: repeat(auto-fit, 294px);
+  }
+
+  @include for-size(desktop) {
+    grid-template-columns: repeat(auto-fit, 274px);
+  }
+}

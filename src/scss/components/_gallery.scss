@@ -1,0 +1,26 @@
+.gallery {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  @include for-size(tablet) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.gallery__film {
+  font-family: $font;
+}
+
+.gallery-film__image {
+  border-radius: 5px;
+}
+
+.gallery-film__title {
+  margin-top: 10px;
+
+  text-transform: uppercase;
+}
+
+.gallery-film__features {
+  display: flex;
+}
