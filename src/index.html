@@ -3,11 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Filmoteka</title>
   </head>
   <body>
-    <!-- Footer -->
+    <header class="header">
+      <div class="header__wrapper">
+        <div class="container">
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a class="nav__link logo" href="#">
+                  <svg class="nav__icon--film">
+                    <use href="./images/symbol-defs.svg#film"></use>
+                  </svg>
+                  <span class="logo-text">Filmoteka</span>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link nav__link--current" href="#">HOME</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link" href="#">MY LIBRARY</a>
+              </li>
+              <li class="nav__item">
+                <div class="auth-container">
+                  <button id="sign_in">sign in</button>
+                  <button id="sign_out" class="hide">sign out</button>
+                  <div class="user-info"></div>
+                </div>
+              </li>
+            </ul>
+
+            <form class="nav__form" id="search-form">
+              <label class="nav__form-label">
+                <input
+                  name="query"
+                  class="nav__form-input"
+                  type="text"
+                  placeholder="Поиск фильмов"
+                />
+                <svg class="nav__icon--search">
+                  <use href="./images/symbol-defs.svg#search-2"></use>
+                </svg>
+              </label>
+            </form>
+          </nav>
+
+          <p class="search-error error-js hide">
+            Search result not successful. Enter the correct movie name and
+          </p>
+        </div>
+      </div>
+    </header>
+<!-- Footer -->
     <footer class="footer">
       <div class="footer__flex">
         <p class="footer__copy">&copy; 2020 | All Rights Reserved |</p>
