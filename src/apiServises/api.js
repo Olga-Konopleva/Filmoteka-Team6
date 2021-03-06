@@ -85,9 +85,6 @@ export default {
   updateInfo(data) {
     // проходимося по масиву об'єктів, для кожного об'єкта робимо необхідні зміни і додаємо їх в новий масив
     const updatedInfo = data.reduce((filmsList, film) => {
-      // if (index > 8) {
-      //   return filmsList;
-      // }
       // перетворюємо release_date в формат '***' (рік)
       film.release_date = film.release_date.slice(0, -6);
       // перетворюємо масив об'єктів з жанрами з формате [{ id: name},..., { id: name} ] в формат [name, ..., name]
