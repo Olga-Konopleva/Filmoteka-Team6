@@ -1,0 +1,9 @@
+{{#each this}}
+<li class="gallery__film grid__item" data-id:{{id}}>
+    <img class="gallery-film__image" src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{poster_path}}"
+        alt="{{original_title}}">
+    <h2 class="gallery-film__title">{{original_title}}</h2>
+    <span class="gallery-film__features">{{genres}} | {{release_date}} {{vote_average}}
+    </span>
+</li>
+{{/each}}

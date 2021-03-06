@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const apiKey = '44fd846a8fbd886b31f763260ef2b77b';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 export default {
@@ -36,13 +37,52 @@ export default {
       return films;
     } catch (error) {}
   },
-  // Функція повертає id всіх фільмів
+
+  // getUpdatedPopularFilms -  вывод популярных фильмов за неделю
+  async getUpdatedPopularFilms() {
+    try {
+      const filmsData = await this.getFullPopularFilms();
+      const films = filmsData.map(({ data }) => data);
+      const updatedFilms = this.updateInfo(films);
+      return updatedFilms;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async getFullPopularFilms() {
+    try {
+      const searchUrl = `/trending/movie/day?api_key=${apiKey}&page=${this.page}`;
+      const idList = await this.getFilmiIdList(searchUrl);
+      const promises = idList.map(id =>
+        axios.get(`movie/${id}?api_key=${apiKey}&language=en-US`),
+      );
+      const film = await Promise.all(promises);
+      // Не знаю чи тут збільшується сторінка, вже голова не варить😃
+      //вроде увеличивается, но в нетворке приходит одна и та же страница,надо с пагинацией уже делать этот момент,непонятно пока
+      this.page += 1;
+      return film;
+    } catch (error) {}
+  },
+
+  //showFilmDetails(id) - показ детальной инфы о фильме при показе модалке, айдишник добавлен в ли каждого фильма data-id
+  async showFilmDetails(id) {
+    try {
+      const { data } = await axios.get(
+        `/movie/${id}?api_key=${apiKey}&language=en-US`,
+      );
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+   // Функція повертає id всіх фільмів
   async getFilmiIdList(url) {
     try {
       const { data } = await axios.get(url);
-      // з об'єкту, що приходить вибираємо масив об'єктів з інформацією про фільми
       const { results } = await data;
-      // з кожного об'єкта вибираємо його id і повертаємо масив id знайдених фільмів
       const filmIdList = results.map(({ id }) => id);
       return filmIdList;
     } catch (error) {
@@ -54,6 +94,9 @@ export default {
   updateInfo(data) {
     // проходимося по масиву об'єктів, для кожного об'єкта робимо необхідні зміни і додаємо їх в новий масив
     const updatedInfo = data.reduce((filmsList, film) => {
+     if (index > 8) {
+          return filmsList;
+        }
       // перетворюємо release_date в формат '***' (рік)
       film.release_date = film.release_date.slice(0, -6);
       // перетворюємо масив об'єктів з жанрами з формате [{ id: name},..., { id: name} ] в формат [name, ..., name]
@@ -65,11 +108,30 @@ export default {
     return updatedInfo;
   },
 
+  //согласно макета если жанров 3 -высвечиваются все 3 жанра,если больше - 2 слова плюс Other
+  getGenre(genres) {
+    const result = genres.reduce((genresList, genre, index) => {
+      const { name } = genre;
+      if (index === 3) {
+        const tooManyGenres = 'Other';
+        genresList[2] = tooManyGenres;
+        return genresList;
+      } else if (index > 3) {
+        return genresList;
+      }
+
+      genresList.push(name);
+      return genresList;
+    }, []);
+
+    return result;
+  },
+
   get query() {
     return this.searchQuery;
   },
-  set query(newQuery) {
-    this.searchQuery = newQuery;
+  set query(search) {
+    this.searchQuery = search;
   },
 
   resetPage() {
