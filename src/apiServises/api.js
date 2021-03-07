@@ -102,7 +102,7 @@ export default {
   },
 
   //согласно макета если жанров 3 -высвечиваются все 3 жанра,если больше - 2 слова плюс Other
-  updateGenres(genres) {
+  updateGenre(genres) {
     const result = genres.reduce((genresList, genre, index) => {
       const { name } = genre;
       if (index === 3) {

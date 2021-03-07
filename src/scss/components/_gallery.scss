@@ -9,18 +9,37 @@
 
 .gallery__film {
   font-family: $font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  border-radius: 3px;
+
+  transition: transform $transition;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+    box-shadow: 3px 3px 16px 0px $gray-backdrop;
+  }
 }
 
 .gallery-film__image {
+  width: 100%;
+  height: 402px;
+
+  margin-bottom: 10px;
+
   border-radius: 5px;
 }
 
 .gallery-film__title {
-  margin-top: 10px;
-
   text-transform: uppercase;
 }
 
 .gallery-film__features {
   display: flex;
+
+  margin-bottom: 2px;
+  color: $orange-primary;
 }
