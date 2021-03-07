@@ -19,7 +19,7 @@ function footerModalHandler(selector) {
   const studentsButton = document.querySelector(selector);
 
   function onOpen() {
-    MicroModal.show('modal-1');
+    MicroModal.show('modal-footer');
   }
 
   studentsButton.addEventListener('click', () => onOpen(selector));
