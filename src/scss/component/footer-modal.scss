@@ -1,0 +1,265 @@
+// стилі модального вікна micromodal
+
+.modal {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+}
+
+.modal__overlay__footer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__container__footer {
+  background-color: #fff;
+  padding: 30px;
+  width: 882px;
+  max-height: 100vh;
+  border-radius: 4px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding-bottom: 18px;
+  @include for-size(mobile-only) {
+    padding: 15px;
+    width: 320px;
+  }
+  @include for-size(tablet-only) {
+    width: 668px;
+  }
+}
+
+.modal__header__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__title__footer {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #454545;
+  box-sizing: border-box;
+}
+
+.modal__btn__footer.modal__close__footer {
+  background-color: transparent;
+  border: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal__header__footer .modal__close__footer:before {
+  content: '\2715';
+}
+
+.modal__content__footer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.modal__btn__footer {
+  text-decoration: none;
+  font-size: 0.875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #e6e6e6;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0.25rem;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  -webkit-appearance: button;
+  text-transform: none;
+  overflow: visible;
+  line-height: 1.15;
+  margin: 0;
+  will-change: transform;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  transition: -webkit-transform 0.25s ease-out;
+  transition: transform 0.25s ease-out;
+  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+}
+
+.modal__close__footer.modal__btn__footer:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+  transition: 0.25s;
+}
+
+.modal__btn__footer:hover {
+  background-color: #e6e6e6;
+}
+
+.modal__btn__footer:focus,
+.modal__btn__footer:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.modal__btn-primary {
+  background-color: #00449e;
+  color: #fff;
+}
+
+// Анімація модального вікна
+
+@keyframes mmfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mmfadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes mmslideIn {
+  from {
+    transform: translateY(35%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes mmslideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.micromodal-slide {
+  display: none;
+}
+
+.micromodal-slide.is-open {
+  display: block;
+}
+
+.micromodal-slide[aria-hidden='false'] .modal__overlay__footer {
+  animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden='false'] .modal__container__footer {
+  animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden='true'] .modal__overlay__footer {
+  animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden='true'] .modal__container__footer {
+  animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide .modal__container__footer,
+.micromodal-slide .modal__overlay__footer {
+  will-change: transform;
+}
+
+// кастомні стилі модалки
+.github__btn {
+  display: inline-block;
+  background-color: #112034;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.15;
+  border-radius: 0.25rem;
+}
+.github__btn:hover {
+  color: white;
+  text-decoration: underline;
+}
+.grid-container {
+  display: grid;
+  width: 100%;
+  padding: 0 15px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 15px;
+  grid-column-gap: 30px;
+  @include for-size(tablet-only) {
+    grid-row-gap: 30px;
+    grid-column-gap: 15px;
+  }
+  @include for-size(mobile-only) {
+    grid-column-gap: 15px;
+    grid-row-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.grid-cell {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  @include for-size(tablet-only) {
+    width: 100%;
+  }
+  @include for-size(mobile-only) {
+    img {
+      padding: 5;
+      // width: 60px;
+      // min-height: 60px;
+    }
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+  }
+}
+.grid-cell:hover {
+  transform: scale(1.05);
+}
+.grid-cell-top {
+  width: 78px;
+  min-height: 78px;
+  border-radius: 50%;
+  border: 2px solid $footerBg-and-arrowPagin;
+  @include for-size(tablet-only) {
+    width: 58px;
+    min-height: 58px;
+  }
+  @include for-size(mobile-only) {
+    width: 58px;
+    min-height: 58px;
+    margin-bottom: 15px;
+  }
+}
+.grid-cell-name {
+  text-align: center;
+  min-width: 100px;
+  margin-left: 15px;
+  @include for-size(mobile-only) {
+    margin-left: 0;
+  }
+}
