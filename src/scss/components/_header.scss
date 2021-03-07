@@ -1,6 +1,5 @@
 .header {
   font-family: $font;
-
   &__wrapper {
     margin: 0 auto;
 
@@ -62,18 +61,19 @@
 // header-btn
 
 .auth-container > button {
-  background: none;
+  background-color: rgba(0, 0, 0, 0.5);
   color: $white;
-  border: 0.5px solid $gray;
+  border: 1px solid $gray;
   border-radius: 2px;
+  transition: color $transition;
 }
 
 .auth-container > button:focus,
 .auth-container > button:hover {
   color: $orange-primary;
-  border-color: $orange-primary;
-  transition: border-color $transition;
-  // transition: color $transition;
+  border: 1px solid $white;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: color $transition;
 }
 
 // nav
