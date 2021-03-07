@@ -90,6 +90,11 @@ export default {
       // перетворюємо масив об'єктів з жанрами з формате [{ id: name},..., { id: name} ] в формат [name, ..., name]
       film.genres = this.updateGenres(film.genres);
       // додаємо змінені об'єкти в  масив
+      if (!film.poster_path) {
+        film.poster_path = `https://via.placeholder.com/274x398?text=THE+PICTURE+IS+WANTED`;
+      } else {
+        film.poster_path = `https://themoviedb.org/t/p/w220_and_h330_face/${film.poster_path}`;
+      }
       filmsList.push(film);
       return filmsList;
     }, []);
