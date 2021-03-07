@@ -9,7 +9,7 @@ const refs = {
   formWrap: document.querySelector('#formWrap'),
   containerBtnLibrary: document.querySelector('#containerBtnLibrary'),
   logo: document.getElementById('logo'),
-  spinner: document.querySelector('#spin'),
+  spinner: document.querySelector('.spinner-js'),
 };
 
 export default refs;
