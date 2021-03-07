@@ -1,0 +1,77 @@
+.header__wrapper--library {
+  margin: 0 auto;
+
+  padding-top: 46px;
+  padding-bottom: 74px;
+  max-width: 300px;
+  background-color: $gray;
+  background-image: linear-gradient($headerBg, $headerBg),
+    url('../images/mobile_library@1x.jpg');
+  background-position: center;
+  background-size: cover;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url('../images/mobile_library@2x.jpg');
+  }
+
+  @include for-size(tablet) {
+    padding-top: 41px;
+  }
+
+  @include for-size(tablet-only) {
+    max-width: 648px;
+    background-image: linear-gradient($headerBg, $headerBg),
+      url('../images/tablet_library@1x.jpg');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/tablet_library@2x.jpg');
+    }
+  }
+
+  @include for-size(desktop) {
+    max-width: inherit;
+    background-image: linear-gradient($headerBg, $headerBg),
+      url('../images/desktop_library@1x.jpg');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/desktop_library@2x.jpg');
+    }
+  }
+}
+
+.button-list {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn.queue {
+  margin-left: 15px;
+}
+.btn {
+  background-color: transparent;
+  color: $white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  min-width: 136px;
+  cursor: pointer;
+  transition: all 300ms ease-in;
+}
+.btn.lib-btn-active {
+  background-color: $orange-secondary;
+}
+.btn.lib-btn-off {
+  border: 1px solid $white;
+  transition: all 300ms ease-in;
+}

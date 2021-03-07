@@ -7,12 +7,12 @@
   </head>
   <body>
     <header class="header">
-      <div class="header__wrapper">
-        <div class="container">
+      <div class="header__wrapper" id="header">
+        <div class="container dws-form">
           <nav class="nav">
             <ul class="nav__list">
               <li class="nav__item">
-                <a class="nav__link logo" href="#">
+                <a class="nav__link logo" href="#" id="logo">
                   <svg class="nav__icon--film">
                     <use href="./images/symbol-defs.svg#film"></use>
                   </svg>
@@ -20,10 +20,17 @@
                 </a>
               </li>
               <li class="nav__item">
-                <a class="nav__link nav__link--current" href="#">HOME</a>
+                <a
+                  class="nav__link active nav__link--current"
+                  href="#"
+                  id="homeBtn"
+                  >HOME</a
+                >
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#">MY LIBRARY</a>
+                <a class="nav__link nav-library hide" href="#" id="libraryBtn"
+                  >MY LIBRARY</a
+                >
               </li>
               <li class="nav__item">
                 <div class="auth-container">
@@ -33,25 +40,33 @@
                 </div>
               </li>
             </ul>
-
-            <form class="nav__form" id="search-form">
-              <label class="nav__form-label">
-                <input
-                  name="query"
-                  class="nav__form-input"
-                  type="text"
-                  placeholder="Поиск фильмов"
-                />
-                <svg class="nav__icon--search">
-                  <use href="./images/symbol-defs.svg#search-2"></use>
-                </svg>
-              </label>
-            </form>
+            <div id="formWrap">
+              <form class="nav__form" id="search-form">
+                <label class="nav__form-label">
+                  <input
+                    name="query"
+                    class="nav__form-input"
+                    type="text"
+                    placeholder="Поиск фильмов"
+                  />
+                  <svg class="nav__icon--search">
+                    <use href="./images/symbol-defs.svg#search-2"></use>
+                  </svg>
+                </label>
+              </form>
+            </div>
           </nav>
 
-          <p class="search-error error-js hide">
-            Search result not successful. Enter the correct movie name and
-          </p>
+          <div id="containerBtnLibrary" class="hide">
+            <ul class="button-list">
+              <li class="button-item">
+                <button class="btn lib-btn-active btnWatched">WATCHED</button>
+              </li>
+              <li class="button-item">
+                <button class="btn lib-btn-off queue btnQueue">QUEUE</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>
