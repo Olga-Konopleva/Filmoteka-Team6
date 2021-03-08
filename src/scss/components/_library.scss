@@ -1,7 +1,7 @@
 .header__wrapper--library {
   margin: 0 auto;
 
-  padding-top: 46px;
+  // padding-top: 46px;
   padding-bottom: 74px;
   max-width: 300px;
   background-color: $gray;
@@ -17,7 +17,7 @@
   }
 
   @include for-size(tablet) {
-    padding-top: 41px;
+    // padding-top: 41px;
   }
 
   @include for-size(tablet-only) {
