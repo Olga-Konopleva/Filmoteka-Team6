@@ -10,5 +10,4 @@ function onFormSubmit(event) {
   refs.gallery.textContent = '';
   api.resetPage();
   showFilmsByQuery();
-  refs.spinner.classList.remove('hide');
 }
