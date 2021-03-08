@@ -64,19 +64,21 @@
 // header-btn
 
 .auth-container > button {
-  background-color: rgba(0, 0, 0, 0.5);
+  // background-color: rgba(0, 0, 0, 0.5);
   color: $white;
-  border: 1px solid $gray;
-  border-radius: 2px;
-  transition: color $transition;
+  border: 1px solid $white;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  transition: all $transition;
 }
 
 .auth-container > button:focus,
 .auth-container > button:hover {
-  color: $orange-primary;
-  border: 1px solid $white;
-  background-color: rgba(0, 0, 0, 0);
-  transition: color $transition;
+  background-color: $orange-secondary;
+  border: 1px solid transparent;
+  transition: all $transition;
 }
 
 // nav
@@ -127,7 +129,7 @@
   }
 
   &__item:not(:last-child) {
-    margin-right: 40px;
+    margin-right: 37px;
   }
 
   &__item:not(:first-child) {
