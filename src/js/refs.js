@@ -8,6 +8,8 @@ const refs = {
   formWrap: document.querySelector('#formWrap'),
   containerBtnLibrary: document.querySelector('#containerBtnLibrary'),
   logo: document.getElementById('logo'),
+  buttonModal: document.querySelector('.btn-trigger'),
+  divModal: document.querySelector('.modal__container'),
 };
 
 export default refs;
