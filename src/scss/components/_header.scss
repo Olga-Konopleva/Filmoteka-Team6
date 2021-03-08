@@ -16,7 +16,8 @@
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url('../images/mobile_home@2x.jpg');
+      background-image: linear-gradient($headerBg, $headerBg),
+        url('../images/mobile_home@2x.jpg');
     }
 
     @include for-size(tablet) {
@@ -31,7 +32,8 @@
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
-        background-image: url('../images/tablet_home@2x.jpg');
+        background-image: linear-gradient($headerBg, $headerBg),
+          url('../images/tablet_home@2x.jpg');
       }
     }
 
@@ -43,7 +45,8 @@
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
-        background-image: url('../images/desktop_home@2x.jpg');
+        background-image: linear-gradient($headerBg, $headerBg),
+          url('../images/desktop_home@2x.jpg');
       }
     }
   }
