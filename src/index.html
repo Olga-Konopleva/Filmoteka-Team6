@@ -41,19 +41,25 @@
               </li>
             </ul>
             <div id="formWrap">
-              <form class="nav__form" id="search-form">
-                <label class="nav__form-label">
-                  <input
-                    name="query"
-                    class="nav__form-input"
-                    type="text"
-                    placeholder="Поиск фильмов"
-                  />
-                  <svg class="nav__icon--search">
-                    <use href="./images/symbol-defs.svg#search-2"></use>
-                  </svg>
-                </label>
-              </form>
+              <div class="input-container">
+                <div class="search-wrap">
+                  <form class="nav__form" id="search-form">
+                    <label class="nav__form-label">
+                      <input
+                        name="query"
+                        class="nav__form-input js-input"
+                        type="text"
+                        placeholder="Поиск фильмов"
+                        autocomplete="off"
+                      />
+                      <svg class="nav__icon--search">
+                        <use href="./images/symbol-defs.svg#search-2"></use>
+                      </svg>
+                    </label>
+                  </form>
+                  <ul class="search-list js-search-list is-hidden"></ul>
+                </div>
+              </div>
             </div>
           </nav>
 
