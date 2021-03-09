@@ -13,6 +13,10 @@ const refs = {
   buttonModal: document.querySelector('.btn-trigger'),
   divModal: document.querySelector('.modal__container'),
   spinner: document.querySelector('.spinner-js'),
+  body: document.querySelector('body'),
+  footer: document.querySelector('.footer'),
+  toolbar: document.querySelector('.toolbar'),
+  stateCheckbox: document.getElementById('theme-switch-toggle'),
 };
 
 export default refs;

@@ -8,6 +8,29 @@
   <body>
     <header class="header">
       <div class="header__wrapper" id="header">
+        <!-- Разметка переключателя тем -->
+        <div class="toolbar container">
+          <div class="theme-switch">
+            <div class="theme-switch__control">
+              <input
+                class="theme-switch__toggle"
+                type="checkbox"
+                name="theme"
+                id="theme-switch-toggle"
+                aria-label="Переключить между тёмной и светлой темой"
+              />
+              <label
+                aria-hidden="true"
+                class="theme-switch__track"
+                for="theme-switch-toggle"
+              >
+              </label>
+              <div aria-hidden="true" class="theme-switch__marker"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Разметка хедера  -->
         <div class="container dws-form">
           <nav class="nav">
             <ul class="nav__list">
