@@ -1,3 +1,4 @@
+
 .btn-trigger {
   margin: 0 0 300px;
 }
@@ -28,7 +29,7 @@
   padding-top: 48px;
   padding-bottom: 41px;
   max-width: 280px;
-  max-height: 958px;
+  // max-height: 958px;
 }
 
 @include for-size(tablet) {
@@ -168,57 +169,100 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    color: black;
+    color:$black;
     width: 30px;
     height: 30px;
     background: transparent;
     border: 0;
 }
 
-.modal__button {
-  margin-top: 21px;
+.modal__button-container {
+
+  @include for-size(mobile) {
+    display: flex;
+  }
 }
+
+.modal__button {
+  font-family:$font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3; 
+  background-color: transparent;
+  color: $black;
+  border: 1px solid $black;
+  border-radius: 5px;
+  cursor: pointer;
+  backface-visibility: hidden;
+
+  padding-left: 6px;
+  padding-right: 6px;
+  
+  @include for-size(mobile) {
+    margin-top: 21px;
+    margin-right: 14px;
+    width: 112px;
+    height: 44px;
+  }
+
+  @include for-size(tablet) {
+    width: 125px; 
+    margin-right: 15px;
+  }
+
+  @include for-size(desktop) {
+   width: 136px;
+  }
+}
+
+
+.modal__button:focus, .modal__button:hover{
+   background-color: $orange-secondary;
+   color: $white;
+   transform: scale(1.05);
+}
+
 
 .modal__header .modal__close:before { content: "\2715"; }
 
 
-.modal__btn {
-  font-size: .875rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  background-color: #e6e6e6;
-  color: rgba(0,0,0,.8);
-  border-radius: .25rem;
-  border-style: none;
-  border-width: 0;
-  cursor: pointer;
-  -webkit-appearance: button;
-  text-transform: none;
-  overflow: visible;
-  line-height: 1.15;
-  margin: 0;
-  will-change: transform;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  transition: -webkit-transform .25s ease-out;
-  transition: transform .25s ease-out;
-  transition: transform .25s ease-out,-webkit-transform .25s ease-out;
-}
+// .modal__btn {
+//   font-size: .875rem;
+//   padding-left: 1rem;
+//   padding-right: 1rem;
+//   padding-top: .5rem;
+//   padding-bottom: .5rem;
+//   background-color: #e6e6e6;
+//   color: rgba(0,0,0,.8);
+//   border-radius: .25rem;
+//   border-style: none;
+//   border-width: 0;
+//   cursor: pointer;
+//   -webkit-appearance: button;
+//   text-transform: none;
+//   overflow: visible;
+//   line-height: 1.15;
+//   margin: 0;
+//   will-change: transform;
+//   -moz-osx-font-smoothing: grayscale;
+//   -webkit-backface-visibility: hidden;
+//   backface-visibility: hidden;
+//   -webkit-transform: translateZ(0);
+//   transform: translateZ(0);
+//   transition: -webkit-transform .25s ease-out;
+//   transition: transform .25s ease-out;
+//   transition: transform .25s ease-out,-webkit-transform .25s ease-out;
+// }
 
-.modal__btn:focus, .modal__btn:hover {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
-}
+// .modal__btn:focus, .modal__btn:hover {
+//   -webkit-transform: scale(1.05);
+//   transform: scale(1.05);
+// }
 
-.modal__btn-primary {
-  background-color: #00449e;
-  color: #fff;
-}
+// .modal__btn-primary {
+//   background-color: #00449e;
+//   color: #fff;
+// }
 
 /**************************\
   Demo Animation Style

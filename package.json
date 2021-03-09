@@ -53,6 +53,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "firebase": "^8.2.9",
+    "fs": "0.0.1-security",
     "handlebars": "^4.7.6",
     "lodash.debounce": "^4.0.8",
     "material-design-icons": "^3.0.1",

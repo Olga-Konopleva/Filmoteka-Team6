@@ -2,8 +2,8 @@
 <div class="modal__document" role="document">
     <header class="modal__header">
     <button class="modal__close" aria-label="Close modal" aria-controls="modal__container1" data-micromodal-close></button>
-    
-    <img class="modal__img" src='{{poster_path}}' alt='poster {{original_title}}'>
+
+    <img class="modal__img" src='https://www.themoviedb.org/t/p/w220_and_h330_face/{{poster_path}}' alt='poster {{original_title}}'>
     
     </header>
 
@@ -32,11 +32,14 @@
 
         <h3 class="modal__title2"><b>About</b></h3>
         <p class="modal__text"><b>{{overview}}</b></p>
-
-        <button id="add-watched" class="modal__button">ADD TO WATCHED</button>
-        <button id="remove-watched" class="modal__button hide">REMOVE FROM WATCHED</button>
-        <button id="add-queue" class="modal__button">ADD TO QUEUE</button>
-        <button id="remove-queue" class="modal__button hide">REMOVE FROM QUEUE</button>
+        
+            <ul class="modal__button-container">
+        <li><button id="add-watched" class="modal__button">ADD TO WATCHED</button></li>
+        <li><button id="remove-watched" class="modal__button hide">REMOVE FROM WATCHED</button></li>
+        <li><button id="add-queue" class="modal__button">ADD TO QUEUE</button></li>
+        <li><button id="remove-queue" class="modal__button hide">REMOVE FROM QUEUE</button></li>
+            </ul>
+        
     </main>
 </div>
 
