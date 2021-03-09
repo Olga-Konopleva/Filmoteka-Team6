@@ -1,7 +1,5 @@
 .footer {
   // стилі для розмітки футер
-  background-color: $footerBg-and-arrowPagin;
-  color: #545454;
 
   // Десктоп
   @include for-size(desktop) {

@@ -1,10 +1,9 @@
 .header {
   font-family: $font;
-
   &__wrapper {
     margin: 0 auto;
 
-    padding-top: 46px;
+    // padding-top: 46px;
     padding-bottom: 97px;
     max-width: 300px;
     background-color: $gray;
@@ -16,12 +15,12 @@
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url('../images/mobile_home@2x.jpg');
+      background-image: linear-gradient($headerBg, $headerBg),
+        url('../images/mobile_home@2x.jpg');
     }
-
-    @include for-size(tablet) {
-      padding-top: 41px;
-    }
+    /* 
+   ! @include for-size(tablet) {padding-top: 41px;
+    } */
 
     @include for-size(tablet-only) {
       max-width: 648px;
@@ -31,7 +30,8 @@
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
-        background-image: url('../images/tablet_home@2x.jpg');
+        background-image: linear-gradient($headerBg, $headerBg),
+          url('../images/tablet_home@2x.jpg');
       }
     }
 
@@ -43,7 +43,8 @@
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
-        background-image: url('../images/desktop_home@2x.jpg');
+        background-image: linear-gradient($headerBg, $headerBg),
+          url('../images/desktop_home@2x.jpg');
       }
     }
   }
@@ -57,6 +58,26 @@
   @include for-size(mobile-only) {
     display: none;
   }
+}
+
+// header-btn
+
+.auth-container > button {
+  // background-color: rgba(0, 0, 0, 0.5);
+  color: $white;
+  border: 1px solid $white;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  transition: all $transition;
+}
+
+.auth-container > button:focus,
+.auth-container > button:hover {
+  background-color: $orange-secondary;
+  border: 1px solid transparent;
+  transition: all $transition;
 }
 
 // nav
@@ -107,7 +128,7 @@
   }
 
   &__item:not(:last-child) {
-    margin-right: 40px;
+    margin-right: 37px;
   }
 
   &__item:not(:first-child) {
