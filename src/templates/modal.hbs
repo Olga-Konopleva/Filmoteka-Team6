@@ -1,19 +1,20 @@
-
 <div class="modal__document" role="document">
     <header class="modal__header">
-    <button class="modal__close" aria-label="Close modal" aria-controls="modal__container1" data-micromodal-close></button>
+        <button class="modal__close" aria-label="Close modal" aria-controls="modal__container1"
+            data-micromodal-close></button>
+        {{#each this}}
+        <img class="modal__img" src='{{poster_path}}' alt='poster {{original_title}}'>
 
-    <img class="modal__img" src='https://www.themoviedb.org/t/p/w220_and_h330_face/{{poster_path}}' alt='poster {{original_title}}'>
-    
     </header>
 
-    <main class="modal__content" id="modal-1-content">          
+    <main class="modal__content" id="modal-1-content">
         <h2 class="modal__title">{{title}}</h2>
         <div class="modal__information">
             <table width="100%" cellspacing="0" cellpadding="5">
                 <tr>
                     <td class="modal__information--text1">Vote/Votes</td>
-                    <td class="modal__information--text2"><span class="modal__information--block"><b>{{vote_average}}</span> / {{vote_count}}</b></td>
+                    <td class="modal__information--text2"><span
+                            class="modal__information--block"><b>{{vote_average}}</span> / {{vote_count}}</b></td>
                 </tr>
                 <tr>
                     <td class="modal__information--text1">Popularity</td>
@@ -25,21 +26,17 @@
                 </tr>
                 <tr>
                     <td class="modal__information--text1">Genre</td>
-                    <td class="modal__information--text2"><b>{{#each genres}}{{name}} {{/each}}</b></td>
+                    <td class="modal__information--text2"><b>{{genres}}{{name}} </b></td>
                 </tr>
             </table>
         </div>
 
         <h3 class="modal__title2"><b>About</b></h3>
         <p class="modal__text"><b>{{overview}}</b></p>
-        
-            <ul class="modal__button-container">
-        <li><button id="add-watched" class="modal__button">ADD TO WATCHED</button></li>
-        <li><button id="remove-watched" class="modal__button hide">REMOVE FROM WATCHED</button></li>
-        <li><button id="add-queue" class="modal__button">ADD TO QUEUE</button></li>
-        <li><button id="remove-queue" class="modal__button hide">REMOVE FROM QUEUE</button></li>
-            </ul>
-        
+        {{/each}}
+        <button id="add-watched" class="modal__button">ADD TO WATCHED</button>
+        <button id="remove-watched" class="modal__button hide">REMOVE FROM WATCHED</button>
+        <button id="add-queue" class="modal__button">ADD TO QUEUE</button>
+        <button id="remove-queue" class="modal__button hide">REMOVE FROM QUEUE</button>
     </main>
 </div>
-
