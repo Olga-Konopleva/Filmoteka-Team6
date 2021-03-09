@@ -17,12 +17,12 @@ MicroModal.init({
 
 function footerModalHandler(selector) {
   const studentsButton = document.querySelector(selector);
-
   function onOpen() {
     MicroModal.show('modal-footer');
   }
-
   studentsButton.addEventListener('click', () => onOpen(selector));
 }
+
+footerModalHandler('#students');
 
 export default footerModalHandler;
