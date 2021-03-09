@@ -6,4 +6,4 @@ import './js/search-list';
 import './js/btnActive';
 import './js/navigation';
 import './js/spinner';
-
+import './js/theme';

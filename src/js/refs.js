@@ -11,6 +11,10 @@ const refs = {
   containerBtnLibrary: document.querySelector('#containerBtnLibrary'),
   logo: document.getElementById('logo'),
   spinner: document.querySelector('.spinner-js'),
+  body: document.querySelector('body'),
+  footer: document.querySelector('.footer'),
+  toolbar: document.querySelector('.toolbar'),
+  stateCheckbox: document.getElementById('theme-switch-toggle'),
 };
 
 export default refs;

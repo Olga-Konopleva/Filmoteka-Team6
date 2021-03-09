@@ -28,7 +28,8 @@
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url('../images/tablet_library@2x.jpg');
+      background-image: linear-gradient($headerBg, $headerBg),
+        url('../images/tablet_library@2x.jpg');
     }
   }
 
