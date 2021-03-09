@@ -29,9 +29,10 @@
   @include for-size(mobile-only) {
     padding: 15px;
     width: 320px;
+    border-radius: 0px;
   }
   @include for-size(tablet-only) {
-    width: 668px;
+    width: 750px;
   }
 }
 
@@ -97,6 +98,9 @@
   transition: -webkit-transform 0.25s ease-out;
   transition: transform 0.25s ease-out;
   transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+  @include for-size(mobile-only) {
+    padding: 0.4rem 0.8rem;
+  }
 }
 
 .modal__close__footer.modal__btn__footer:hover {
@@ -196,6 +200,9 @@
   font-size: 0.875rem;
   line-height: 1.15;
   border-radius: 0.25rem;
+  @include for-size(mobile-only) {
+    padding: 0.4rem 0.8rem;
+  }
 }
 .github__btn:hover {
   color: white;
@@ -205,7 +212,7 @@
   display: grid;
   width: 100%;
   padding: 0 15px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-row-gap: 15px;
   grid-column-gap: 30px;
   @include for-size(tablet-only) {
@@ -218,48 +225,47 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-.grid-cell {
+.grid-cell,
+.grid-cell:visited {
   width: 100%;
   padding: 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #454545;
+
   @include for-size(tablet-only) {
     width: 100%;
   }
   @include for-size(mobile-only) {
-    img {
-      padding: 5;
-      // width: 60px;
-      // min-height: 60px;
-    }
     width: 100%;
     padding: 0;
-    flex-direction: column;
+    margin-top: 10px;
   }
 }
 .grid-cell:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
+  box-shadow: 2px 2px 6px 0px #9f9f9f;
 }
 .grid-cell-top {
   width: 78px;
   min-height: 78px;
   border-radius: 50%;
-  border: 2px solid $footerBg-and-arrowPagin;
-  @include for-size(tablet-only) {
-    width: 58px;
-    min-height: 58px;
-  }
+  margin-bottom: 15px;
   @include for-size(mobile-only) {
     width: 58px;
     min-height: 58px;
-    margin-bottom: 15px;
+  }
+  @include for-size(tablet-only) {
+    width: 68px;
+    min-height: 68px;
   }
 }
 .grid-cell-name {
   text-align: center;
-  min-width: 100px;
-  margin-left: 15px;
   @include for-size(mobile-only) {
-    margin-left: 0;
+    font-size: 14px;
   }
 }

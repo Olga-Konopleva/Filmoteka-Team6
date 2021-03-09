@@ -6,5 +6,6 @@ import './js/search-list';
 import './js/btnActive';
 import './js/navigation';
 import './js/spinner';
+import './js/footer-modal-handler/footer-modal-handler';
 import './js/theme';
 import './js/pagination';
