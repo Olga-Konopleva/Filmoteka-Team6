@@ -7,3 +7,4 @@ import './js/btnActive';
 import './js/navigation';
 import './js/spinner';
 import './js/theme';
+import './js/pagination';

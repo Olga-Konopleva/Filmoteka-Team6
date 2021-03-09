@@ -17,6 +17,7 @@ const refs = {
   footer: document.querySelector('.footer'),
   toolbar: document.querySelector('.toolbar'),
   stateCheckbox: document.getElementById('theme-switch-toggle'),
+  paginator: document.getElementById('pagination'),
 };
 
 export default refs;
