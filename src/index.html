@@ -67,18 +67,22 @@
               <div class="input-container">
                 <div class="search-wrap">
                   <form class="nav__form" id="search-form">
-                    <label class="nav__form-label">
-                      <input
-                        name="query"
-                        class="nav__form-input js-input"
-                        type="text"
-                        placeholder="Поиск фильмов"
-                        autocomplete="off"
-                      />
+                    <input
+                      name="query"
+                      class="nav__form-input js-input"
+                      type="text"
+                      placeholder="Поиск фильмов"
+                      autocomplete="off"
+                      id="name"
+                    />
+                    <label for="name" class="nav__form-label"
+                      >Поиск фильмов</label
+                    >
+                    <button class="nav__form-button--search" type="submit">
                       <svg class="nav__icon--search">
                         <use href="./images/symbol-defs.svg#search-2"></use>
                       </svg>
-                    </label>
+                    </button>
                   </form>
                   <ul class="search-list js-search-list is-hidden"></ul>
                 </div>
