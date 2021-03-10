@@ -21,7 +21,7 @@ export default {
       const films = filmsData.map(({ data }) => data);
       // Для кожного об'єкта оновлюємо необхідну в ньому інформацію
       const updatedFilms = this.updateInfo(films);
-       console.log(updatedFilms);
+      console.log(updatedFilms);
       return updatedFilms;
     } catch (error) {
       console.log(error);
@@ -70,12 +70,26 @@ export default {
       console.log(error);
     }
   },
+
   // Функція оновлює дані для одного фільма
   updateOneFilmInfo(data) {
-    const updatedfilm = [];
-    updatedfilm.push(data);
-    this.updateInfo(updatedfilm);
-    return updatedfilm;
+    const updateFilm = { ...data };
+    // перетворюємо release_date в формат '***' (рік)
+    updateFilm.release_date = updateFilm.release_date.slice(0, -6);
+    // перетворюємо масив об'єктів з жанрами з формате [{ id: name},..., { id: name} ] в формат [name, ..., name]
+    updateFilm.genres = updateFilm.genres.map(({ name }) => name);
+    // Робимо заголовок великими
+    updateFilm.original_title = updateFilm.original_title.toUpperCase();
+    // Округлюємо популярність до десятих
+    updateFilm.popularity =
+      Math.floor(Math.ceil(updateFilm.popularity * 10)) / 10;
+    // додаємо змінені об'єкти в  масив
+    if (!updateFilm.poster_path) {
+      updateFilm.poster_path = `https://via.placeholder.com/274x398?text=THE+PICTURE+IS+WANTED`;
+    } else {
+      updateFilm.poster_path = `https://themoviedb.org/t/p/w220_and_h330_face/${data.poster_path}`;
+    }
+    return updateFilm;
   },
 
   // Функція повертає id всіх фільмів
@@ -97,15 +111,15 @@ export default {
       // перетворюємо release_date в формат '***' (рік)
       film.release_date = film.release_date.slice(0, -6);
       // перетворюємо масив об'єктів з жанрами з формате [{ id: name},..., { id: name} ] в формат [name, ..., name]
-      film.popularity = Math.floor(Math.ceil(film.popularity * 10)) / 10;
+      // film.popularity = Math.floor(Math.ceil(film.popularity * 10)) / 10;
 
       film.genres = this.updateGenres(film.genres);
       // додаємо змінені об'єкти в  масив
-      if (!film.backdrop_path) {
-        film.backdrop_path = `https://via.placeholder.com/274x398?text=THE+PICTURE+IS+WANTED`;
-      } else {
-        film.backdrop_path = `https://themoviedb.org/t/p/w220_and_h330_face/${film.backdrop_path}`;
-      }
+      // if (!film.backdrop_path) {
+      //   film.backdrop_path = `https://via.placeholder.com/274x398?text=THE+PICTURE+IS+WANTED`;
+      // } else {
+      //   film.backdrop_path = `https://themoviedb.org/t/p/w220_and_h330_face/${film.backdrop_path}`;
+      // }
 
       if (!film.poster_path) {
         film.poster_path = `https://via.placeholder.com/274x398?text=THE+PICTURE+IS+WANTED`;
@@ -117,6 +131,8 @@ export default {
     }, []);
     return updatedInfo;
   },
+
+  // getImageSize(width, height) { }
 
   //согласно макета если жанров 3 -высвечиваются все 3 жанра,если больше - 2 слова плюс Other
   updateGenres(genres) {
