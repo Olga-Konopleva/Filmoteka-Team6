@@ -8,7 +8,6 @@ const catchElement = id => {
   };
 };
 
-
 const refs = {
   searchForm: document.querySelector('#search-form'),
   gallery: document.querySelector('.js-gallery'),
@@ -36,7 +35,8 @@ const refs = {
   removeBtnWatch: catchElement('remove-watched'),
   addBtnQueue: catchElement('add-queue'),
   removeBtnQueue: catchElement('remove-queue'),
-  modal : document.querySelector('.modal'),
+  modal: document.querySelector('.modal'),
+  logoBtn: document.querySelector('#logo'),
 };
 
 export default refs;
