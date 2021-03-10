@@ -114,7 +114,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 strong {
@@ -160,4 +160,8 @@ a:hover {
 
 .show {
   display: block;
+}
+
+body.hidden {
+  overflow-y: hidden;
 }

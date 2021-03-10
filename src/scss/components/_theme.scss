@@ -54,6 +54,7 @@ footer.dark-theme {
   border: 2px solid $orange-secondary;
   border-radius: 50em;
   padding: 3px 0;
+  z-index: 0;
 
   @include for-size(desktop) {
     width: 56px;
