@@ -9,3 +9,8 @@ import './js/spinner';
 import './js/footer-modal-handler/footer-modal-handler';
 import './js/theme';
 import './js/pagination';
+
+import './js/authFirebase';
+import './js/dataToFirebase';
+import './js/dataFromFirebase';
+import './js/mainFirebase';
