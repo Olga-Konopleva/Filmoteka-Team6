@@ -2,6 +2,7 @@ import MicroModal from 'micromodal';
 import filmTpl from '../templates/modal.hbs';
 import refs from './refs';
 import apiService from '../apiServises/api';
+import { showTrailer } from './show-trailer';
 refs.gallery.addEventListener('click', openModal);
 MicroModal.init({
   disableScroll: true, // [6]
@@ -29,7 +30,9 @@ function showModal(event) {
     .then(data => apiService.updateOneFilmInfo(data))
     //  .then(console.log)
     .then(data => updateData(data))
-    .then(openModal);
+    .then(showTrailer);
+
+  // refs.body.classList.add('hidden');
   refs.divModal.innerHTML = '';
 }
 function updateData(data) {
