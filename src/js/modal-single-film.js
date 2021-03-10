@@ -16,6 +16,10 @@ MicroModal.init({
   awaitOpenAnimation: false, // [8]
   awaitCloseAnimation: false, // [9]
   debugMode: true, // [10]
+  onClose: modal=>{
+    refs.divModal.innerHTML = '';
+    // refs.divModal.removeEventListener('click', modalClick);
+  }
 });
 
 export function openModal(event) {
