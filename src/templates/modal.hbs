@@ -2,8 +2,13 @@
     <header class="modal__header">
         <button class="modal__close" aria-label="Close modal" aria-controls="modal__container1"
             data-micromodal-close></button>
-
-        <img class="modal__img" src='{{poster_path}}' alt='poster {{original_title}}'>
+<picture class="modal__img" >
+    <source srcset="{{poster_path}}" media="(min-width: 1200px)" />
+    <source srcset="{{poster_path}}" media="(min-width: 768px)" />
+    <source srcset="{{poster_path}}" media="(max-width: 767px)" />
+    <img class="modal__img" src="{{poster_path}}" alt="poster {{original_title}}" />
+</picture>
+        {{!-- <img class="modal__img" src='{{poster_path}}' alt='poster {{original_title}}'> --}}
 
     </header>
 
@@ -33,10 +38,11 @@
 
         <h3 class="modal__title2"><b>About</b></h3>
         <p class="modal__text"><b>{{overview}}</b></p>
-
+        <div class="modal__button-container">
         <button id="add-watched" class="modal__button">ADD TO WATCHED</button>
         <button id="remove-watched" class="modal__button hide">REMOVE FROM WATCHED</button>
         <button id="add-queue" class="modal__button">ADD TO QUEUE</button>
         <button id="remove-queue" class="modal__button hide">REMOVE FROM QUEUE</button>
+        </div>
     </main>
 </div>
