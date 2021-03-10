@@ -8,6 +8,7 @@ function showFilmsByQuery() {
     .then(films => updateGalleryMarkup(films))
     .finally(() => {
       refs.spinner.classList.add('hide');
+      refs.spinnerInversion.classList.add('hide');
     });
 }
 export default showFilmsByQuery;
