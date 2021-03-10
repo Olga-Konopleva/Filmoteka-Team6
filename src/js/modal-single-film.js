@@ -6,6 +6,10 @@ refs.gallery.addEventListener('click', openModal);
 MicroModal.init({
   disableScroll: true, // [6]
   disableFocus: true, // [7]
+  onClose: modal=>{
+    refs.divModal.innerHTML = '';
+    // refs.divModal.removeEventListener('click', modalClick);
+  }
 });
 export function openModal(event) {
   if (
@@ -19,6 +23,7 @@ export function openModal(event) {
   showModal(event);
   MicroModal.show('modal-1');
 }
+
 function showModal(event) {
   const element = event.target;
   const id = element.dataset.id;
@@ -29,7 +34,6 @@ function showModal(event) {
     .then(data => apiService.updateOneFilmInfo(data))
     //  .then(console.log)
     .then(data => updateData(data))
-    .then(openModal);
   refs.divModal.innerHTML = '';
 }
 function updateData(data) {
