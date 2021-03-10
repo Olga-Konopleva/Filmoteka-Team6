@@ -2,6 +2,7 @@ import MicroModal from 'micromodal';
 import filmTpl from '../templates/modal.hbs';
 import refs from './refs';
 import apiService from '../apiServises/api';
+import { showTrailer } from './show-trailer';
 
 refs.gallery.addEventListener('click', openModal);
 
@@ -46,7 +47,9 @@ function showModal(event) {
     .showFilmDetails(id)
     .then(data => apiService.updateOneFilmInfo(data))
     //  .then(console.log)
-    .then(data => updateData(data));
+    .then(data => updateData(data))
+    .then(showTrailer);
+  // refs.body.classList.add('hidden');
   refs.divModal.innerHTML = '';
 }
 
