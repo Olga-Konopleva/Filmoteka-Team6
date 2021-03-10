@@ -2,9 +2,11 @@ import MicroModal from 'micromodal';
 import filmTpl from '../templates/modal.hbs';
 import refs from './refs';
 import apiService from '../apiServises/api';
-
 refs.gallery.addEventListener('click', openModal);
-
+MicroModal.init({
+  disableScroll: true, // [6]
+  disableFocus: true, // [7]
+});
 export function openModal(event) {
   if (
     event.target.nodeName !== 'IMG' &&
@@ -15,15 +17,12 @@ export function openModal(event) {
     return;
   }
   showModal(event);
-  MicroModal.init({
-    disableScroll: true,
-    disableFocus: true,
-  });
+  MicroModal.show('modal-1');
 }
-
 function showModal(event) {
   const element = event.target;
   const id = element.dataset.id;
+  localStorage.setItem('firebase-id', id);
   // console.log(id);
   apiService
     .showFilmDetails(id)
@@ -33,7 +32,6 @@ function showModal(event) {
     .then(openModal);
   refs.divModal.innerHTML = '';
 }
-
 function updateData(data) {
   const markup = filmTpl(data);
   refs.divModal.insertAdjacentHTML('beforeend', markup);
