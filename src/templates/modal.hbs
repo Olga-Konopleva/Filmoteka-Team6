@@ -33,18 +33,30 @@
                     <td class="modal__information--text1">Genre</td>
                     <td class="modal__information--text2"><b>{{#each genres}}{{this}} {{/each}}</b></td>
                 </tr>
+                <tr>
+                    <td><button data-action="open" class="modal__button-trailer">Watch trailer</button></td>
+                </tr>
             </table>
         </div>
 
         <h3 class="modal__title2"><b>About</b></h3>
         <p class="modal__text"><b>{{overview}}</b></p>
-
         <div class="modal__button-container">
         <button id="add-watched" class="modal__button">ADD TO WATCHED</button>
         <button id="remove-watched" class="modal__button hide">REMOVE FROM WATCHED</button>
         <button id="add-queue" class="modal__button">ADD TO QUEUE</button>
         <button id="remove-queue" class="modal__button hide">REMOVE FROM QUEUE</button>
         </div>
-        
     </main>
+</div>
+
+<div class="trailer">
+    <div class="trailer-backdrop">
+        <div class="trailer-modal">
+            <iframe src="https://www.youtube.com/embed/{{key}}?autoplay=1" frameborder="0" allowfullscreen>
+            </iframe>
+
+            <button data-action="close" class="film-trailer-close">Close trailer</button>
+        </div>
+    </div>
 </div>

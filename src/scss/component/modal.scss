@@ -1,4 +1,3 @@
-
 .btn-trigger {
   margin: 0 0 300px;
 }
@@ -16,7 +15,7 @@ z-index: 2;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,43 +25,43 @@ z-index: 2;
 .modal__container {
   background-color: #fff;
 
-@include for-size(mobile) {
-  margin-top: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 48px;
-  padding-bottom: 41px;
-  max-width: 280px;
-  // max-height: 958px;
-}
+  @include for-size(mobile) {
+    margin-top: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 48px;
+    padding-bottom: 41px;
+    max-width: 280px;
+    // max-height: 958px;
+  }
 
-@include for-size(tablet) {
-  margin-top: 0;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 42px;
-  padding-bottom: 40px;
-  max-width: 618px;
-  max-height: 562px;
-}
+  @include for-size(tablet) {
+    margin-top: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 42px;
+    padding-bottom: 40px;
+    max-width: 618px;
+    max-height: 562px;
+  }
 
- @include for-size(desktop) {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 50px;
-  padding-bottom: 102px;
-  max-width: 882px;
-  max-height: 568px; 
- }
+  @include for-size(desktop) {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 50px;
+    padding-bottom: 102px;
+    max-width: 882px;
+    max-height: 568px;
+  }
 
   overflow-y: auto;
   box-sizing: border-box;
 }
 
 .modal__document {
-  @include for-size(tablet) {  
-  display: flex;
-  } 
+  @include for-size(tablet) {
+    display: flex;
+  }
 }
 
 .modal__header {
@@ -96,58 +95,56 @@ min-width: 370px;
 
 .modal__content {
   @include for-size(tablet) {
-  margin-left: 32px;
+    margin-left: 32px;
   }
   @include for-size(desktop) {
-  margin-left: 30px;
+    margin-left: 30px;
   }
 }
 
 .modal__title {
   @include for-size(mobile) {
-  margin-top: 30px;
+    margin-top: 30px;
 
-  font-family:$font;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.17;
-  color: $black;
+    font-family: $font;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.17;
+    color: $black;
   }
 
   @include for-size(tablet) {
-  margin-top: 0; 
+    margin-top: 0;
   }
 
   @include for-size(desktop) {
-  font-size: 30px;
+    font-size: 30px;
   }
 }
 
 .modal__information {
   display: flex;
   margin-top: 20px;
-  font-family:$font;
+  font-family: $font;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.3;
-
 }
 
 .modal__information--text1 {
   color: $gray-text-modal;
 
   @include for-size(mobile) {
-  width: 108px;
+    width: 108px;
     padding-bottom: 10px;
   }
 
   @include for-size(desktop) {
-   width: 152px;
+    width: 152px;
   }
 }
 
 .modal__information--text2 {
-
   @include for-size(tablet) {
     margin-top: 20px;
   }
@@ -158,17 +155,17 @@ min-width: 370px;
 }
 
 .modal__information--block {
-    border:1px solid $orange-secondary;
-    background: $orange-secondary; 
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 5px;
-    color: $white;
+  border: 1px solid $orange-secondary;
+  background: $orange-secondary;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+  color: $white;
 }
 
 .modal__title2 {
   margin-top: 20px;
-   font-family:$font;
+  font-family: $font;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.3;
@@ -176,35 +173,34 @@ min-width: 370px;
 
 .modal__text {
   margin-top: 20px;
-   font-family:$font;
+  font-family: $font;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.6;
 }
 
 .modal__close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color:$black;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    border: 0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: $black;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 0;
 }
 
 .modal__button-container {
-
   @include for-size(mobile) {
     display: flex;
   }
 }
 
 .modal__button {
-  font-family:$font;
+  font-family: $font;
   font-weight: 500;
   font-size: 12px;
-  line-height: 1.3; 
+  line-height: 1.3;
   background-color: transparent;
   color: $black;
   border: 1px solid $black;
@@ -213,7 +209,7 @@ min-width: 370px;
 
   padding-left: 6px;
   padding-right: 6px;
-  
+
   @include for-size(mobile) {
     margin-top: 21px;
     margin-right: 14px;
@@ -222,23 +218,22 @@ min-width: 370px;
   }
 
   @include for-size(tablet) {
-    width: 125px; 
+    width: 125px;
     margin-right: 15px;
   }
 
   @include for-size(desktop) {
-   width: 136px;
+    width: 136px;
   }
 }
 
-
-.modal__button:focus, .modal__button:hover{
-   background-color: $orange-secondary;
-   color: $white;
-   transform: scale(1.05);
-   border: 1px solid $orange-secondary;
+.modal__button:focus,
+.modal__button:hover {
+  background-color: $orange-secondary;
+  color: $white;
+  transform: scale(1.05);
+  border: 1px solid $orange-secondary;
 }
-
 
 .modal__header .modal__close:before { content: "\2715";}
 
@@ -285,21 +280,29 @@ min-width: 370px;
   Demo Animation Style
 \**************************/
 @keyframes mm-fadeIn {
-    from { opacity: 0; }
-      to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes mm-slideIn {
-  from { transform: translateY(35%); }
-    to { transform: translateY(0); }
+  from {
+    transform: translateY(35%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
-.micromodal-slide[aria-hidden="false"] .modal__overlay {
-  animation: mm-fadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+.micromodal-slide[aria-hidden='false'] .modal__overlay {
+  animation: mm-fadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.micromodal-slide[aria-hidden="false"] .modal__container {
-  animation: mm-slideIn .3s cubic-bezier(0, 0, .2, 1);
+.micromodal-slide[aria-hidden='false'] .modal__container {
+  animation: mm-slideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .micromodal-slide .modal__container,
@@ -309,5 +312,5 @@ min-width: 370px;
 
 .modal[aria-hidden='true'] {
   display: none;
-
 }
+
