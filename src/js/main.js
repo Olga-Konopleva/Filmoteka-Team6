@@ -3,6 +3,7 @@ import updateGalleryMarkup from './update-markup';
 import refs from './refs';
 
 refs.logoBtn.addEventListener('click', handlePopularFilmsByClick);
+refs.homeBtn.addEventListener('click', handlePopularFilmsByClick);
 
 function handlePopularFilmsByClick() {
   refs.gallery.innerHTML = '';
