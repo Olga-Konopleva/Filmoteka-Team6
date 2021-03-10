@@ -3,8 +3,9 @@
 }
 
 .modal {
-  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
-color: black;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  color: $black;
 z-index: 2;
 }
 
@@ -235,7 +236,9 @@ min-width: 370px;
   border: 1px solid $orange-secondary;
 }
 
-.modal__header .modal__close:before { content: "\2715";}
+.modal__header .modal__close:before {
+  content: '\2715';
+}
 
 
 // .modal__btn {
@@ -313,4 +316,3 @@ min-width: 370px;
 .modal[aria-hidden='true'] {
   display: none;
 }
-
