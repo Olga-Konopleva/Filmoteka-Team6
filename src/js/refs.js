@@ -16,6 +16,8 @@ const refs = {
   body: document.querySelector('body'),
   footer: document.querySelector('.footer'),
   toolbar: document.querySelector('.toolbar'),
+  modalThemeFilm: document.querySelector('.modal__theme-film'),
+  modalThemeFooter: document.querySelector('.modal__theme-footer'),
   stateCheckbox: document.getElementById('theme-switch-toggle'),
   paginator: document.getElementById('pagination'),
 };
