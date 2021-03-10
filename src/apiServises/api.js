@@ -21,7 +21,7 @@ export default {
       const films = filmsData.map(({ data }) => data);
       // Для кожного об'єкта оновлюємо необхідну в ньому інформацію
       const updatedFilms = this.updateInfo(films);
-      console.log(updatedFilms);
+      // console.log(updatedFilms);
       return updatedFilms;
     } catch (error) {
       console.log(error);
