@@ -3,19 +3,27 @@ body.light-theme {
   color: $black;
 }
 
-footer.light-theme {
-  background-color: $footerBg-and-arrowPagin;
-  color: #545454;
-}
-
 body.dark-theme {
   background-color: $gray;
   color: $white;
 }
 
+footer.light-theme {
+  background-color: $footerBg-and-arrowPagin;
+  color: #545454;
+}
+
 footer.dark-theme {
-  background-color: #5c5656;
+  background-color: $footerBg-dark-theme;
   color: $white;
+}
+
+.modal__container.light-theme {
+  background-color: $white;
+}
+
+.modal__container.dark-theme {
+  background-color: $modal-dark-theme;
 }
 
 .toolbar {
@@ -72,7 +80,7 @@ footer.dark-theme {
   user-select: none;
   background-color: $gray;
   border-radius: inherit;
-  z-index: 1;
+  z-index: 0;
   cursor: pointer;
 }
 
@@ -82,7 +90,7 @@ footer.dark-theme {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 0;
   pointer-events: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   transform: translateX(3px);
