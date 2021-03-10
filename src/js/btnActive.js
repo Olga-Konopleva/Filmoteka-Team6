@@ -3,7 +3,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import refs from './refs';
 import * as dataFromFirebase from './dataFromFirebase';
-
+import updateGalleryMarkup from './update-markup';
 
 const btnWatched = document.querySelector('.btnWatched');
 const btnQueue = document.querySelector('.btnQueue');
@@ -15,31 +15,33 @@ refs.libraryBtn.addEventListener('click', showMyLibrary);
 
 //ПОКАЗУЄ БІБЛІОТЕКУ ФІЛЬМІВ
 function showMyLibrary() {
-  renderWatched() 
-};
+  renderWatched();
+}
 
 // РЕНДЕР ПЕРЕГЛЯНУТИХ ПО АЙДІШНИКАХ З БД
 function renderWatched() {
-    onActive() 
-    refs.gallery.innerHTML = '';
-    if (firebase.auth().currentUser) {
-        dataFromFirebase.getMoviesWatched(firebase.auth().currentUser.uid);
-    }
-    // const movieCard = document.querySelector('.movie-card')
-    // console.log(movieCard);
+  onActive();
+  refs.gallery.innerHTML = '';
+  if (firebase.auth().currentUser) {
+    dataFromFirebase
+      .getMoviesWatched(firebase.auth().currentUser.uid)
+      .then(films => updateGalleryMarkup(films));
+  }
 
-};
+  // const movieCard = document.querySelector('.movie-card')
+  // console.log(movieCard);
+}
 
 // РЕНДЕР ТИХ ШО В ЧЕРЗІ ПО АЙДІШНИКАХ З БД
 function renderQueue() {
-    addActive();
-    refs.gallery.innerHTML = '';
-    if (firebase.auth().currentUser) {
-        dataFromFirebase.getMoviesQueue(firebase.auth().currentUser.uid);
-    }
-};
-
-
+  addActive();
+  refs.gallery.innerHTML = '';
+  if (firebase.auth().currentUser) {
+    dataFromFirebase
+      .getMoviesQueue(firebase.auth().currentUser.uid)
+      .then(films => updateGalleryMarkup(films));
+  }
+}
 
 function addActive() {
   btnQueue.classList.remove('lib-btn-off');
