@@ -9,7 +9,13 @@ function onFormSubmit(event) {
   const form = event.currentTarget;
   api.query = form.elements.query.value;
   refs.gallery.textContent = '';
-  refs.spinner.classList.remove('hide');
+
+  const theme = localStorage.getItem('Theme');
+  if (theme === 'light-theme') {
+    refs.spinner.classList.remove('hide');
+  } else {
+    refs.spinnerInversion.classList.remove('hide');
+  }
   api.resetPage();
   showFilmsByQuery();
 }

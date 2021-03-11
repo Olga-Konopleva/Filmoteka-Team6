@@ -26,6 +26,10 @@ function renderWatched() {
     dataFromFirebase
       .getMoviesWatched(firebase.auth().currentUser.uid)
       .then(films => updateGalleryMarkup(films));
+  } else {
+    dataFromFirebase
+      .getMoviesWatched()
+      .then(films => updateGalleryMarkup(films));
   }
 
   // const movieCard = document.querySelector('.movie-card')
@@ -40,6 +44,8 @@ function renderQueue() {
     dataFromFirebase
       .getMoviesQueue(firebase.auth().currentUser.uid)
       .then(films => updateGalleryMarkup(films));
+  } else {
+    dataFromFirebase.getMoviesQueue().then(films => updateGalleryMarkup(films));
   }
 }
 

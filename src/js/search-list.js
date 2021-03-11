@@ -8,7 +8,6 @@ import MicroModal from 'micromodal';
 refs.input.addEventListener('input', debounce(predicationSearch, 500));
 
 function predicationSearch () {
-    console.log('work');
     api.searchQuery = refs.input.value;
     
     refs.searchList.innerHTML = '';

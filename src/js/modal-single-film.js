@@ -3,6 +3,8 @@ import filmTpl from '../templates/modal.hbs';
 import refs from './refs';
 import apiService from '../apiServises/api';
 import { showTrailer } from './show-trailer';
+import * as mainFirebase from './mainFirebase';
+
 
 refs.gallery.addEventListener('click', openModal);
 
@@ -26,12 +28,21 @@ export function showModal(event) {
   const element = event.target;
   const id = element.dataset.id;
   localStorage.setItem('firebase-id', id);
+  mainFirebase.checkMovieInStorage(id); 
   // console.log(id);
   apiService
     .showFilmDetails(id)
     .then(data => apiService.updateOneFilmInfo(data))
     //  .then(console.log)
     .then(data => updateData(data))
+    .then(data => {
+      mainFirebase.checkMovieInStorage()
+      return data
+    })
+    .then(data => {
+      mainFirebase.modalMagic();
+      return data
+    })
     .then(showTrailer);
   refs.divModal.innerHTML = '';
  
