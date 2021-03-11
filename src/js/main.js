@@ -2,6 +2,7 @@ import apiService from '../apiServises/api';
 import updateGalleryMarkup from './update-markup';
 import refs from './refs';
 
+
 refs.logoBtn.addEventListener('click', handlePopularFilmsByClick);
 refs.homeBtn.addEventListener('click', handlePopularFilmsByClick);
 
@@ -14,7 +15,7 @@ function handlePopularFilmsByClick() {
 
 function loadPopularFilms() {
   apiService
-    .getUpdatedFilms(apiService.getUrl().popylarFilmsUrl)
+    .getUpdatedFilms(apiService.url.popylarFilmsUrl)
     .then(updateGalleryMarkup)
     .finally(() => {
       refs.spinner.classList.add('hide');
@@ -22,3 +23,4 @@ function loadPopularFilms() {
 }
 
 loadPopularFilms();
+

@@ -5,7 +5,7 @@ import { emptyFilmListHandler } from './util/infos';
 
 function showFilmsByQuery() {
   api
-    .getUpdatedFilms(api.getUrl().searchUrl)
+    .getUpdatedFilms(api.url.searchUrl)
     .then(films => {
       updateGalleryMarkup(films);
 
@@ -16,6 +16,7 @@ function showFilmsByQuery() {
     })
     .finally(() => {
       refs.spinner.classList.add('hide');
+      refs.spinnerInversion.classList.add('hide');
     });
 }
 export default showFilmsByQuery;
