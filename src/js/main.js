@@ -2,6 +2,7 @@ import apiService from '../apiServises/api';
 import updateGalleryMarkup from './update-markup';
 import refs from './refs';
 
+
 refs.logoBtn.addEventListener('click', handlePopularFilmsByClick);
 refs.homeBtn.addEventListener('click', handlePopularFilmsByClick);
 
@@ -22,3 +23,4 @@ function loadPopularFilms() {
 }
 
 loadPopularFilms();
+
