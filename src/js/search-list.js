@@ -7,7 +7,7 @@ import { emptyFilmListHandler } from './util/infos';
 refs.input.addEventListener('input', debounce(predicationSearch, 500));
 
 function predicationSearch() {
-  console.log('work');
+  // console.log('work');
   api.searchQuery = refs.input.value;
 
   refs.searchList.innerHTML = '';
@@ -19,11 +19,6 @@ function predicationSearch() {
     refs.searchList.classList.remove('is-hidden');
     if (!filmList.length) {
       refs.searchList.classList.add('is-hidden');
-
-      // ! Notification
-      if (!filmList.length) {
-        emptyFilmListHandler();
-      }
       return false;
     }
     const updatedFilmList = filmList.slice(0, 5);
