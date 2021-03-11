@@ -5,7 +5,7 @@ import { success } from '@pnotify/core';
 function successLoginHandler() {
   success({
     text: 'Logged-in successfully',
-    delay: 4000,
+    delay: 1000,
     mouseReset: true,
     closer: true,
     remove: true,
@@ -16,7 +16,7 @@ function successLoginHandler() {
 function successLogoutHandler() {
   success({
     text: 'Logged-out successfully',
-    delay: 4000,
+    delay: 1000,
     mouseReset: true,
     closer: true,
     remove: true,
@@ -26,7 +26,7 @@ function successLogoutHandler() {
 
 function successAddQueueHandler() {
   success({
-    text: 'Film was added to queue successfully',
+    text: 'You added this film to Queue!',
     delay: 2000,
     mouseReset: true,
     closer: false,
@@ -37,7 +37,7 @@ function successAddQueueHandler() {
 
 function successAddWatchedHandler() {
   success({
-    text: 'Film was added to watched successfully',
+    text: 'You added this film to Watch!',
     delay: 2000,
     mouseReset: true,
     closer: false,

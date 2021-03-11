@@ -8,9 +8,6 @@ import * as dataFromFirebase from './dataFromFirebase'
 
 const container = refs.divModal;
 
-
-// container.addEventListener('click', modalClick)
-
 //ФУНКЦІЯ ДЛЯ ОБРОБКИ КЛІКІВ ПО КНОПКАХ В МОДАЛЦІ
 function modalMagic() {
 
@@ -19,7 +16,6 @@ function modalMagic() {
         const removeBtnWatch = container.querySelector('button[data-id=removewatched]');
         const addBtnQueue = container.querySelector('button[data-id=addqueue]');
         const removeBtnQueue = container.querySelector('button[data-id=removequeue]');
-    // console.log(addBtnWatch)
   
   container.addEventListener('click', (event) => {
         
@@ -62,8 +58,6 @@ function checkMovieInStorage() {
             
               addBtnWatch.classList.add('hide');
               removeBtnWatch.classList.remove('hide');
-            // addToWatched.textContent = "ALREADY IN WATCHED";
-            // addToWatched.setAttribute("disabled", 'true');
           }
           } else {
             addBtnWatch.classList.remove('hide');
@@ -74,8 +68,6 @@ function checkMovieInStorage() {
             
               addBtnQueue.classList.add('hide');
               removeBtnQueue.classList.remove('hide');
-            // addToQueue.textContent = "ALREADY IN QUEUE";
-            // addToQueue.setAttribute("disabled", 'true');
 
           }
         } else {

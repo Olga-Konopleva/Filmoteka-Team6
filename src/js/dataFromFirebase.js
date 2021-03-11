@@ -7,6 +7,7 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 import refs from './refs.js';
 import * as auth from './authFirebase';
 import * as dataToFirebase from './dataToFirebase.js';
+import { warningRemoveQueueHandler,warningRemoveWatchedHandler } from './util/warnings';
 
 import api from '../apiServises/api';
 
@@ -122,6 +123,7 @@ function removeFromWatch() {
     let movieId = localStorage.getItem('firebase-id');
     deleteFilmHandlerWatched(movieId);
   }
+  setTimeout(warningRemoveWatchedHandler, 300);
 }
 
 function removeFromQueue() {
@@ -150,6 +152,7 @@ function removeFromQueue() {
     let movieId = localStorage.getItem('firebase-id');
     deleteFilmHandlerQueue(movieId);
   }
+  setTimeout(warningRemoveQueueHandler, 300);
 }
 
 export {

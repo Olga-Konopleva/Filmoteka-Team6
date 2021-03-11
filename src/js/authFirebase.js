@@ -25,16 +25,23 @@ function initApp() {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       // SIGN IN
+      refs.signOutBtn.classList.remove('hide');
+      refs.signInBtn.classList.add('hide');
       const displayName = user.displayName;
       const photoURL = user.photoURL;
       const email = user.email;
       const uid = user.uid;
-      refs.userInfo.innerHTML = `<img class="user-img" width="40px"src="${photoURL}">
-           <p>${displayName}</p>`;
+      refs.userInfo.innerHTML = `<img class="user-img" src="${photoURL}"> 
+            <div class="user-block">
+              <p class="user-name">${displayName}</p>
+              <p class="user-email">${email}</p>
+            </div>`;
       console.log(`Current user: ${displayName}`, `userId: ${uid}`);
       readUserData(uid);
     } else {
       // SIGN OUT
+      refs.signInBtn.classList.remove('hide');
+      refs.signOutBtn.classList.add('hide');
       refs.userInfo.innerHTML = '';
     }
   });
@@ -46,8 +53,7 @@ function googleSignIn() {
     .auth()
     .signInWithPopup(provider)
     .then(result => {
-      refs.signOutBtn.classList.remove('hide');
-      refs.signInBtn.classList.add('hide');
+
       const credential = result.credential;
       // This gives you a Google Access Token. You can use it to access the Google API.
       const token = credential.accessToken;
@@ -102,8 +108,7 @@ function googleSignOut() {
       console.log('ERRROR!');
     });
 
-  refs.signInBtn.classList.remove('hide');
-  refs.signOutBtn.classList.add('hide');
+
 
   // !Sign out notification
   setTimeout(successLogoutHandler, 500);
