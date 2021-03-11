@@ -8,17 +8,13 @@ import refs from './refs.js';
 import * as auth from './authFirebase';
 import * as dataToFirebase from './dataToFirebase.js';
 
+
 import api from '../apiServises/api';
 
 //ФУКНЦІЯ ЯКА ПЕРЕВІРЯЄ ЧИ Є В БД АЙДІШНИК ПО ЯКОМУ КЛІКНУЛИ
 //І РОБИТЬ ВІДПОВІДНІ СТИЛІ ДЛЯ КНОПОК
 function setModalBtnWatchStyles(event, button, hiddenBtn) {
-  // console.log(event.type)
-  //   console.log(event.target);
-  //   console.log(button);
-  //   console.log(hiddenBtn);
-  // button.textContent = 'ADD TO WATCHED'
-  // button.removeAttribute('disabled');
+
   if (event.target === button) {
     button.classList.add('hide');
     hiddenBtn.classList.remove('hide');
@@ -76,18 +72,9 @@ async function getMoviesQueue(uid) {
   console.log(updatedQueued);
   return updatedQueued;
 
-  // console.log(movieObjects);
-  // movieObjects.map(
-  //   ({ id, original_title, poster_path, genres, release_date }) => {
-  //     const movie = [
-  //       { id, original_title, poster_path, genres, release_date },
-  //     ];
-  //     updateGalleryMarkup(movie);
-  //   },
-  // );
+
 }
 
-// .catch(error => console.log('error'));
 
 // ФУНКЦІЯ ЯКА ЧИСТИТЬ РОЗМІТКУ
 // ВИДАЛЯЄ АЙДІШНИК ФІЛЬМА НА ЯКОМУ КЛІКНУЛИ КНОПКУ З БД
@@ -142,11 +129,7 @@ function removeFromQueue() {
   }
 }
 
-//РЕНДЕР РОЗМІТКИ ПО ШАБЛОНУ
-// function updateMarkup(movie) {
-//     let markup = filmCard(movie);;
-//     refs.gallery.insertAdjacentHTML('beforeend', markup);
-// };
+
 
 export {
   getMoviesWatched,
