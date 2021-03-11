@@ -107,7 +107,7 @@ footer.dark-theme {
 }
 
 .theme-switch__toggle:checked + .theme-switch__track {
-  background-color: #d3d3d4;
+  background-color: $white;
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
