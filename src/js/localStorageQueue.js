@@ -3,7 +3,11 @@ import refs from './refs';
 
 const getListFilmsQueue = () => {
   const currentList = localStorage.getItem('queue');
+  
   const queue = JSON.parse(currentList);
+  if(!queue){
+    return;
+  }
   const listQueue = queue.map(item => {
     return item['filmQueue'];
   });

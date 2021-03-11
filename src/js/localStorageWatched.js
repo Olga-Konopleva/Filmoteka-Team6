@@ -4,6 +4,9 @@ import refs from './refs';
 const getListFilmsWatched = () => {
   const currentList = localStorage.getItem('watch');
   const watch = JSON.parse(currentList);
+  if(!watch){
+    return;
+  }
   const listWatch = watch.map(item => {
     return item['filmWatched'];
   });

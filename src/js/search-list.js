@@ -15,7 +15,7 @@ function predicationSearch () {
         refs.searchList.classList.add('is-hidden');
         return;
     };
-    api.getUpdatedFilms(api.getUrl().searchUrl).then(filmList => {
+    api.getUpdatedFilms(api.url.searchUrl).then(filmList => {
         refs.searchList.classList.remove('is-hidden');
         if(!filmList.length) {
             //вывести нотификашку
