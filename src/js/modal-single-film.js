@@ -22,7 +22,6 @@ export function openModal(event) {
   })
 };
 
-
 export function showModal(event) {
   const element = event.target;
   const id = element.dataset.id;
