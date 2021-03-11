@@ -13,9 +13,9 @@ function warningSignInHandler() {
   });
 }
 
-function warningQueueHandler() {
+function warningRemoveQueueHandler() {
   alert({
-    text: 'Film already in queue ...',
+    text: 'You removed this film from Queue!',
     delay: 3000,
     mouseReset: true,
     closer: false,
@@ -24,9 +24,9 @@ function warningQueueHandler() {
   });
 }
 
-function warningWatchedHandler() {
+function warningRemoveWatchedHandler() {
   alert({
-    text: 'Film already in watched ...',
+    text: 'You removed this film from Watch!!',
     delay: 3000,
     mouseReset: true,
     closer: false,
@@ -35,4 +35,4 @@ function warningWatchedHandler() {
   });
 }
 
-export { warningSignInHandler, warningQueueHandler, warningWatchedHandler };
+export { warningSignInHandler, warningRemoveQueueHandler, warningRemoveWatchedHandler };

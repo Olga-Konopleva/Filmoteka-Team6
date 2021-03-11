@@ -3,6 +3,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import refs from './refs';
 import * as auth from './authFirebase';
+import { successAddQueueHandler, successAddWatchedHandler } from './util/success';
 
 //ЗБЕРЕЖЕННЯ АЙДІШНІКА В БД
 function addToWatch() {
@@ -23,6 +24,7 @@ function addToWatch() {
         updateWatchedList(uid, [...watched, movieId]);
       });
   }
+  setTimeout(successAddWatchedHandler, 300);
 }
 
 //ЗБЕРЕЖЕННЯ АЙДІШНІКА В БД
@@ -44,6 +46,7 @@ function addToQueue() {
         updateQueueList(uid, [...queue, movieId]);
       });
   }
+  setTimeout(successAddQueueHandler, 300);
 }
 
 //ФУНКЦІЯ ДЛЯ ОНОВЛЕННЯ СПИСКУ АЙДІШНІКІВ В БД
@@ -62,7 +65,8 @@ function updateWatchedList(userId, movieId) {
           console.log('DATA UPDATE SUCCESSFULLY');
         }
       },
-    );
+  );
+
 }
 
 //ФУНКЦІЯ ДЛЯ ОНОВЛЕННЯ СПИСКУ АЙДІШНІКІВ В БД

@@ -7,6 +7,7 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 import refs from './refs.js';
 import * as auth from './authFirebase';
 import * as dataToFirebase from './dataToFirebase.js';
+import { warningRemoveQueueHandler,warningRemoveWatchedHandler } from './util/warnings';
 
 
 import api from '../apiServises/api';
@@ -102,6 +103,7 @@ function removeFromWatch() {
       });
     // console.log(watched);
   }
+  setTimeout(warningRemoveWatchedHandler, 300);
 }
 
 function removeFromQueue() {
@@ -127,6 +129,7 @@ function removeFromQueue() {
       });
     // console.log(queue);
   }
+  setTimeout(warningRemoveQueueHandler, 300);
 }
 
 

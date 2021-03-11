@@ -1,12 +1,4 @@
-const catchElement = id => {
-  let el;
-  return () => {
-    if (!el) {
-      el = document.getElementById(id);
-    }
-    return el;
-  };
-};
+
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
@@ -34,10 +26,6 @@ const refs = {
   signInBtn: document.querySelector('#sign_in'),
   signOutBtn: document.querySelector('#sign_out'),
   userInfo: document.querySelector('.user-info'),
-  addBtnWatch: catchElement('add-watched'),
-  removeBtnWatch: catchElement('remove-watched'),
-  addBtnQueue: catchElement('add-queue'),
-  removeBtnQueue: catchElement('remove-queue'),
   modal: document.querySelector('.modal'),
   logoBtn: document.querySelector('#logo'),
 };
