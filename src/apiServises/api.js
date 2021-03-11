@@ -169,7 +169,7 @@ export default {
   // запрос по айди фильма для получения ключей всех видео о фильме
   async getFilmTrailer(id) {
     const { data } = await axios.get(
-      `/movie/${id}/videos?api_key=${apiKey}&language=en-US`,
+      `/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
     );
     const { results } = data;
     //оставила самый популярный трейлер для показа

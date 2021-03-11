@@ -15,7 +15,7 @@ function handlePopularFilmsByClick() {
 
 function loadPopularFilms() {
   apiService
-    .getUpdatedFilms(apiService.getUrl().popylarFilmsUrl)
+    .getUpdatedFilms(apiService.url.popylarFilmsUrl)
     .then(updateGalleryMarkup)
     .finally(() => {
       refs.spinner.classList.add('hide');
