@@ -18,7 +18,9 @@ MicroModal.init({
 function footerModalHandler(selector) {
   const studentsButton = document.querySelector(selector);
   function onOpen() {
-    MicroModal.show('modal-footer');
+    MicroModal.show('modal-footer',{
+    disableScroll: true
+  });
   }
   studentsButton.addEventListener('click', () => onOpen(selector));
 }

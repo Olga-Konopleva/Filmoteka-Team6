@@ -2,6 +2,8 @@ import refs from './refs';
 import debounce from 'lodash.debounce';
 import api from '../apiServises/api';
 import searchListTpl from '../templates/search-list.hbs';
+ import { showModal } from '../js/modal-single-film';
+import MicroModal from 'micromodal';
 
 refs.input.addEventListener('input', debounce(predicationSearch, 500));
 
@@ -25,5 +27,21 @@ function predicationSearch () {
         const markup = searchListTpl(updatedFilmList);
         refs.searchList.insertAdjacentHTML('beforeend', markup);
     })
+}
 
+const searchGallery = document.querySelector('.search-list');
+searchGallery.addEventListener('click', openModal);
+
+export function openModal(event) {
+  if (event.target.nodeName !== 'LI') {
+    return;
+  }
+  showModal(event);
+
+  MicroModal.show('modal-1', {
+    onShow: modal => console.info(`${modal.id} is shown`), // [1]
+    onClose: modal => console.info(`${modal.id} is hidden`), // [2]
+    disableScroll: true, // [6]
+    disableFocus: true, // [7]
+  });
 }
