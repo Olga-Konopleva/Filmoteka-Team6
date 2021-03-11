@@ -26,4 +26,4 @@ const opts2 = { ...opts, color: '#ffffff' };
 
 new Spinner(opts).spin(refs.spinner);
 new Spinner(opts2).spin(refs.spinnerInversion);
-// new Spinner(opts2)
+
