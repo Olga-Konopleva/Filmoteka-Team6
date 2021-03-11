@@ -76,19 +76,19 @@ z-index: 1000;
 }
 
 .modal__img {
-  @include for-size(mobile) {
-      width: 240px;
-      height: 356px;
-      border-radius: 5px;
-  }
+//   @include for-size(mobile) {
+//       width: 240px;
+//       height: 356px;
+//       border-radius: 5px;
+//   }
 
- @include for-size(tablet) {
-  width: 264px;
-  height: 373px;
- }  
+//  @include for-size(tablet) {
+//   width: 264px;
+//   height: 373px;
+//  }  
 
  @include for-size(desktop) {
-min-width: 360px;
+ width: 396px;
     height: 477px;
  }
 }
