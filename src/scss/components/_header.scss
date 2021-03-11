@@ -5,7 +5,7 @@
 
     // padding-top: 46px;
     padding-bottom: 94px;
-    max-width: 300px;
+    max-width: 100%;
     background-color: $gray;
     background-image: linear-gradient($headerBg, $headerBg),
       url('../images/mobile_home@1x.jpg');
@@ -20,7 +20,6 @@
     }
 
     @include for-size(tablet-only) {
-      max-width: 648px;
       background-image: linear-gradient($headerBg, $headerBg),
         url('../images/tablet_home@1x.jpg');
 
@@ -33,7 +32,6 @@
     }
 
     @include for-size(desktop) {
-      max-width: inherit;
       background-image: linear-gradient($headerBg, $headerBg),
         url('../images/desktop_home@1x.jpg');
 
