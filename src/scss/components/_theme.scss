@@ -112,6 +112,7 @@ footer.dark-theme {
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
   transform: translateX(34px);
+  background: #483e3e;
 
   @include for-size(desktop) {
     transform: translateX(32px);
