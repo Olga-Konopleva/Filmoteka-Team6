@@ -6,41 +6,43 @@ import * as auth from './authFirebase'
 import * as dataToFirebase from './dataToFirebase.js'
 import * as dataFromFirebase from './dataFromFirebase'
 
-
-// modalClick();
-refs.divModal.addEventListener('click', (event) => {
-    const addBtnWatch = refs.addBtnWatch();
-    const removeBtnWatch = refs.removeBtnWatch();
-    const addBtnQueue = refs.addBtnQueue();
-    const removeBtnQueue = refs.removeBtnQueue();
-    // console.log(addBtnWatch)
+const container = refs.divModal;
 
 
-    dataFromFirebase.setModalBtnWatchStyles(event,addBtnWatch,removeBtnWatch);
-    dataFromFirebase.setModalBtnQueueStyles(event,addBtnQueue, removeBtnQueue);
-})
+// container.addEventListener('click', modalClick)
 
 //ФУНКЦІЯ ДЛЯ ОБРОБКИ КЛІКІВ ПО КНОПКАХ В МОДАЛЦІ
-// function modalClick(event) {
+function modalMagic() {
 
+    
+        const addBtnWatch = container.querySelector('button[data-id=addwatched]');
+        const removeBtnWatch = container.querySelector('button[data-id=removewatched]');
+        const addBtnQueue = container.querySelector('button[data-id=addqueue]');
+        const removeBtnQueue = container.querySelector('button[data-id=removequeue]');
+    // console.log(addBtnWatch)
+  
+  container.addEventListener('click', (event) => {
+        
+        dataFromFirebase.setModalBtnWatchStyles(event,addBtnWatch,removeBtnWatch);
+        dataFromFirebase.setModalBtnQueueStyles(event,addBtnQueue, removeBtnQueue);
+      });
+  
+
+
+}
 // }
 
-refs.gallery.addEventListener('click', () => {
-
-  let movieId = localStorage.getItem('firebase-id');
-    console.log(movieId);
-  setTimeout(checkMovieInStorage(movieId), 100);
-});
 
 
 //ФУНКЦІЯ ДЛЯ ПЕРЕВІРКИ ЧИ Є АЙДІШНИК В БД І ВІДПОВІДНО
 //ЯКІ КНОПКИ ПОКАЗУВАТИ В МОДАЛЦІ
-function checkMovieInStorage(movieId) {
+function checkMovieInStorage() {
   let currentUser = firebase.auth().currentUser
   if (!currentUser) {
     return;
-    }
-
+  }
+  
+    let id = localStorage.getItem('firebase-id');
 
   auth.readUserData(currentUser.uid)
     .then((data) => (data.val())).then((data) => {
@@ -50,12 +52,12 @@ function checkMovieInStorage(movieId) {
         const dataFromQueue = data.queue ||[];
           console.log("ok");
           
-        const addBtnWatch = refs.addBtnWatch();
-        const removeBtnWatch = refs.removeBtnWatch();
-        const addBtnQueue = refs.addBtnQueue();
-        const removeBtnQueue = refs.removeBtnQueue();
+        const addBtnWatch = container.querySelector('button[data-id=addwatched]');
+        const removeBtnWatch = container.querySelector('button[data-id=removewatched]');
+        const addBtnQueue = container.querySelector('button[data-id=addqueue]');
+        const removeBtnQueue = container.querySelector('button[data-id=removequeue]');
 
-        if (dataFromWatched.includes(movieId)) {
+        if (dataFromWatched.includes(id)) {
           if (!addBtnWatch.classList.contains("hide")) {
             
               addBtnWatch.classList.add('hide');
@@ -67,7 +69,7 @@ function checkMovieInStorage(movieId) {
             addBtnWatch.classList.remove('hide');
               removeBtnWatch.classList.add('hide');
         }
-        if (dataFromQueue.includes(movieId)) {
+        if (dataFromQueue.includes(id)) {
           if (!addBtnQueue.classList.contains("hide")) {
             
               addBtnQueue.classList.add('hide');
@@ -83,5 +85,6 @@ function checkMovieInStorage(movieId) {
       }
     })
 
+  
 }
-export {checkMovieInStorage}
+export {checkMovieInStorage,modalMagic}
