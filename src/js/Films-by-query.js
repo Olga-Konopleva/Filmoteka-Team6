@@ -9,8 +9,8 @@ function showFilmsByQuery() {
     .then(films => {
       updateGalleryMarkup(films);
 
-      // ! Notification
-      if (!films.length) {
+      // Notification
+      if (films.length === 0) {
         emptyFilmListHandler();
       }
     })
