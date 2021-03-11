@@ -50,13 +50,13 @@ z-index: 2;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 50px;
-    padding-bottom: 102px;
+    // padding-bottom: 102px;
     max-width: 882px;
     max-height: 568px;
   }
 
-  overflow-y: auto;
-  box-sizing: border-box;
+  // overflow-y: auto;
+  // box-sizing: border-box;
 }
 
 .modal__document {
@@ -73,13 +73,14 @@ z-index: 2;
   min-width: 264px;
 }
 @include for-size(desktop) {
-  min-width: 370px;
+  min-width: 375px;
 }
 }
 
 .modal__img {
   @include for-size(mobile) {
       width: 240px;
+      height: 356px;
       border-radius: 5px;
   }
 
@@ -89,8 +90,8 @@ z-index: 2;
  }  
 
  @include for-size(desktop) {
-min-width: 370px;
-    height: 410px;
+min-width: 375px;
+    height: 477px;
  }
 }
 
@@ -197,7 +198,7 @@ min-width: 370px;
   }
 }
 
-.modal__button {
+.modal__button1 {
   font-family: $font;
   font-weight: 500;
   font-size: 12px;
@@ -228,11 +229,18 @@ min-width: 370px;
   }
 }
 
-.modal__button:focus,
-.modal__button:hover {
+.modal__button1:focus,
+.modal__button1:hover
+ {
   background-color: $orange-secondary;
   color: $white;
   transform: scale(1.05);
+  border: 1px solid $orange-secondary;
+}
+
+.modal__button2 {
+background-color: $orange-secondary;
+  color: $white;
   border: 1px solid $orange-secondary;
 }
 
