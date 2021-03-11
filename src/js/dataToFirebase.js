@@ -4,6 +4,17 @@ import 'firebase/database';
 import refs from './refs';
 import * as auth from './authFirebase';
 
+import {
+  addFilmHandlerWatched,
+  deleteFilmHandlerWatched,
+  getListFilmsWatched,
+} from './localStorageWatched';
+import {
+  addFilmHandlerQueue,
+  deleteFilmHandlerQueue,
+  getListFilmsQueue,
+} from './localStorageQueue';
+
 //ЗБЕРЕЖЕННЯ АЙДІШНІКА В БД
 function addToWatch() {
   const currentUser = firebase.auth().currentUser;
@@ -22,6 +33,9 @@ function addToWatch() {
         }
         updateWatchedList(uid, [...watched, movieId]);
       });
+  } else {
+    let movieId = localStorage.getItem('firebase-id');
+    addFilmHandlerWatched(movieId);
   }
 }
 
@@ -43,6 +57,9 @@ function addToQueue() {
         }
         updateQueueList(uid, [...queue, movieId]);
       });
+  } else {
+    let movieId = localStorage.getItem('firebase-id');
+    addFilmHandlerQueue(movieId);
   }
 }
 
