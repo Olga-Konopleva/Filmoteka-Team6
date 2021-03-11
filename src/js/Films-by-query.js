@@ -4,7 +4,7 @@ import refs from './refs';
 
 function showFilmsByQuery() {
   api
-    .getUpdatedFilms(api.getUrl().searchUrl)
+    .getUpdatedFilms(api.url.searchUrl)
     .then(films => updateGalleryMarkup(films))
     .finally(() => {
       refs.spinner.classList.add('hide');

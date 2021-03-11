@@ -3,5 +3,5 @@ import updateGalleryMarkup from './update-markup';
 
 // удалить(уточнить у Оли)
 apiService
-  .getUpdatedFilms(apiService.getUrl().popylarFilmsUrl)
+  .getUpdatedFilms(apiService.url.popylarFilmsUrl)
   .then(updateGalleryMarkup);
