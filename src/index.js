@@ -9,6 +9,7 @@ import './js/spinner';
 import './js/footer-modal-handler';
 import './js/theme';
 import './js/pagination';
+import './js/back-to-top';
 
 import './js/authFirebase';
 import './js/dataToFirebase';
