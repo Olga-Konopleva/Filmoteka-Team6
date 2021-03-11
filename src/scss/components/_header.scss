@@ -4,7 +4,7 @@
     margin: 0 auto;
 
     // padding-top: 46px;
-    padding-bottom: 97px;
+    padding-bottom: 94px;
     max-width: 300px;
     background-color: $gray;
     background-image: linear-gradient($headerBg, $headerBg),
@@ -86,7 +86,7 @@
   &__list {
     display: flex;
     align-items: center;
-    padding-bottom: 34px;
+    padding-bottom: 19px;
   }
 
   // nav__link
@@ -154,33 +154,79 @@
     width: 12px;
     height: 12px;
   }
+}
 
-  // nav__form
-  &__form {
-    display: flex;
-    justify-content: center;
-    // nav__form-input
-    &-input {
-      width: 324px;
-      border: none;
-      background: none;
-      padding-bottom: 4px;
-      font-size: 14px;
-      color: $white;
-    }
-
-    &-input::placeholder {
-      color: white;
-    }
-
-    &-label {
-      @include for-size(mobile-only) {
-        width: 280px;
-      }
-      display: flex;
-      align-items: center;
-      border-bottom: 0.5px solid $white;
-      width: 336px;
-    }
+.nav__form {
+  position: relative;
+  padding: 15px 0 0;
+  @include for-size(mobile-only) {
+    width: 280px;
   }
+  width: 336px;
+}
+
+.nav__form-input {
+  width: 100%;
+  border: 0;
+  border-bottom: 0.5px solid $white;
+  outline: 0;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .nav__form-label {
+    font-size: 1.2rem;
+    cursor: text;
+    top: 25px;
+  }
+}
+
+.nav__form-label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  color: $white;
+}
+
+.nav__form-input:focus {
+  ~ .nav__form-label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $orange-primary;
+    font-weight: 500;
+  }
+  padding-bottom: 6px;
+  font-weight: 500;
+  border-width: 2px;
+  border-image: linear-gradient(to right, $orange-primary, $red);
+  border-image-slice: 1;
+}
+
+.nav__form-input {
+  &:required,
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
+.nav__form-button--search {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }

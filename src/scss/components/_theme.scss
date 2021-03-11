@@ -3,19 +3,29 @@ body.light-theme {
   color: $black;
 }
 
-footer.light-theme {
-  background-color: $footerBg-and-arrowPagin;
-  color: #545454;
-}
-
 body.dark-theme {
   background-color: $gray;
   color: $white;
 }
 
+footer.light-theme {
+  background-color: $footerBg-and-arrowPagin;
+  color: #545454;
+}
+
 footer.dark-theme {
-  background-color: #5c5656;
+  background-color: $footerBg-dark-theme;
   color: $white;
+}
+
+.modal__theme-film.light-theme,
+.modal__theme-footer.light-theme {
+  background-color: $white;
+}
+
+.modal__theme-film.dark-theme,
+.modal__theme-footer.dark-theme {
+  background-color: $modal-dark-theme;
 }
 
 .toolbar {
@@ -24,7 +34,7 @@ footer.dark-theme {
   padding: 10px 12px;
 
   @include for-size(tablet) {
-    padding: 10px 18px;
+    padding: 10px 16px;
   }
 }
 
@@ -41,8 +51,10 @@ footer.dark-theme {
   position: relative;
   width: 54px;
   height: 20px;
+  border: 2px solid $orange-secondary;
   border-radius: 50em;
   padding: 3px 0;
+  z-index: 0;
 
   @include for-size(desktop) {
     width: 56px;
@@ -72,34 +84,35 @@ footer.dark-theme {
   user-select: none;
   background-color: $gray;
   border-radius: inherit;
-  z-index: 1;
+  z-index: 0;
   cursor: pointer;
 }
 
 .theme-switch__marker {
   position: relative;
-  background-color: #fff;
-  width: 15px;
-  height: 15px;
+  background-color: $white;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 0;
   pointer-events: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  transform: translateX(3px);
+  transform: translateX(1px);
   transition: transform $transition;
 
   @include for-size(desktop) {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }
 
 .theme-switch__toggle:checked + .theme-switch__track {
-  background-color: #d3d3d4;
+  background-color: $white;
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
-  transform: translateX(35px);
+  transform: translateX(34px);
+  background: #545454;
 
   @include for-size(desktop) {
     transform: translateX(32px);

@@ -68,9 +68,10 @@ export default {
         `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`,
       );
       const results = await data;
-      // console.log(results);
+      //добавила фунцкию для получения ключа для показа трейлера для вывода в шаблон
+      const idTrailer = await this.getFilmTrailer(id);
       // const updateFilm = this.updateInfo(results);
-      return results;
+      return { ...results, ...idTrailer };
     } catch (error) {
       console.log(error);
     }
@@ -163,5 +164,17 @@ export default {
 
   resetPage() {
     this.page = 1;
+  },
+
+  // запрос по айди фильма для получения ключей всех видео о фильме
+  async getFilmTrailer(id) {
+    const { data } = await axios.get(
+      `/movie/${id}/videos?api_key=${apiKey}&language=en-US`,
+    );
+    const { results } = data;
+    //оставила самый популярный трейлер для показа
+    const trailer = results[0];
+
+    return trailer;
   },
 };
