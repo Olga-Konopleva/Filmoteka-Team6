@@ -1,7 +1,7 @@
 import apiService from '../apiServises/api';
 import updateGalleryMarkup from './update-markup';
 import refs from './refs';
-import { addItems } from './pagination';
+import { addItems, startPopularPagination } from './pagination';
 
 refs.logoBtn.addEventListener('click', handlePopularFilmsByClick);
 refs.homeBtn.addEventListener('click', handlePopularFilmsByClick);
@@ -24,3 +24,4 @@ async function loadPopularFilms() {
 }
 
 loadPopularFilms();
+startPopularPagination();
