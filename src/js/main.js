@@ -8,7 +8,12 @@ refs.homeBtn.addEventListener('click', handlePopularFilmsByClick);
 
 function handlePopularFilmsByClick() {
   refs.gallery.innerHTML = '';
-  refs.spinner.classList.remove('hide');
+  const theme = localStorage.getItem('Theme');
+  if (theme === 'light-theme') {
+    refs.spinner.classList.remove('hide');
+  } else {
+    refs.spinnerInversion.classList.remove('hide');
+  }
   // apiService.resetPage();
   loadPopularFilms();
 }
