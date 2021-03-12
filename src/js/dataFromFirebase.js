@@ -7,7 +7,10 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 import refs from './refs.js';
 import * as auth from './authFirebase';
 import * as dataToFirebase from './dataToFirebase.js';
-import { warningRemoveQueueHandler,warningRemoveWatchedHandler } from './util/warnings';
+import {
+  warningRemoveQueueHandler,
+  warningRemoveWatchedHandler,
+} from './util/warnings';
 
 import api from '../apiServises/api';
 
@@ -90,7 +93,6 @@ async function getMoviesQueue(uid = false) {
   );
   // отримуємо масив промісів з об'єктами, в яких є повна інформація про фільм
   const updatedQueued = await Promise.all(promises);
-  console.log(updatedQueued);
   return updatedQueued;
 }
 
