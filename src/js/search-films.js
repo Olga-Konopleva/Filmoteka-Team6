@@ -1,6 +1,7 @@
 import api from '../apiServises/api';
 import showFilmsByQuery from './Films-by-query';
 import refs from './refs';
+import { startSearchPagination } from './pagination';
 refs.searchForm.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
@@ -18,4 +19,5 @@ function onFormSubmit(event) {
   }
   api.resetPage();
   showFilmsByQuery();
+  startSearchPagination();
 }

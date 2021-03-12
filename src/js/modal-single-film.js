@@ -33,7 +33,6 @@ export function showModal(event) {
     //  .then(console.log)
     .then(data => updateData(data))
     .then(data => {
-      mainFirebase.checkMovieInStorage();
       const container = refs.divModal;
       const addBtnWatch = container.querySelector('button[data-id=addwatched]');
       const removeBtnWatch = container.querySelector(
@@ -43,12 +42,13 @@ export function showModal(event) {
       const removeBtnQueue = container.querySelector(
         'button[data-id=removequeue]',
       );
-      mainFirebase.checkMovieInLocalStorage(
+      mainFirebase.checkMovieInStorage(
         addBtnWatch,
         removeBtnWatch,
         addBtnQueue,
         removeBtnQueue,
       );
+
       return data;
     })
     .then(data => {
