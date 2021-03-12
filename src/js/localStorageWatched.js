@@ -1,10 +1,9 @@
-import notification from './notification';
 import refs from './refs';
 
 const getListFilmsWatched = () => {
   const currentList = localStorage.getItem('watch');
   const watch = JSON.parse(currentList);
-  if(!watch){
+  if (!watch) {
     return;
   }
   const listWatch = watch.map(item => {
@@ -27,7 +26,6 @@ const updateList = (currentList, id) => {
   const filmToAdd = { filmWatched: id };
   watch.push(filmToAdd);
   localStorage.setItem('watch', JSON.stringify(watch));
-  notification.infoLiberyMessage();
 };
 const addFilmHandlerWatched = id => {
   const currentList = localStorage.getItem('watch');
@@ -37,8 +35,6 @@ const addFilmHandlerWatched = id => {
   } else {
     if (chekDuplicates(id)) {
       updateList(currentList, id);
-    } else {
-      notification.duplicateMessage();
     }
   }
 };
@@ -50,6 +46,5 @@ const deleteFilmHandlerWatched = id => {
   const watch = JSON.parse(currentList);
   watch.splice(indexToDelete, 1);
   localStorage.setItem('watch', JSON.stringify(watch));
-  notification.removeLiberyMessage();
 };
 export { addFilmHandlerWatched, deleteFilmHandlerWatched, getListFilmsWatched };

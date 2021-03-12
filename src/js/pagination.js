@@ -1,58 +1,70 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import api from '../apiServises/api';
-import refs from './refs';
 import updateGalleryMarkup from './update-markup';
+import axios from 'axios';
+import { BASE_URL, API_KEY } from '../apiServises/api-variables';
+import refs from './refs';
 
+const startPage = 1;
 const options = {
-  totalItems: 200,
-  itemsPerPage: 9,
-  visiblePages: 6,
-  centerAlign: false,
+  totalItems: 1,
+  itemsPerPage: 1,
+  visiblePages: 3,
+  page: 1,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn paginator-page">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected paginator-page">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}} paginator-page">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip paginator-page">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
 };
-const pagination = new Pagination(refs.paginator, options);
-pagination.on('beforeMove', function (evt) {
-  api.page = 2;
-  const a = api.getUpdatedFilms(api.getUrl().popylarFilmsUrl);
-  refs.gallery.textContent = '';
-  if (evt.page % 2 === 0) {
-    a.then(data =>
-      data.filter((film, index) => {
-        if (index < 10) {
-          console.log(film);
-          return film;
-        }
-      }),
-    ).then(films => updateGalleryMarkup(films));
-    console.log(a);
-  } else {
-    a.then(data =>
-      data.filter((film, index) => {
-        if (index > 9) {
-          console.log(film);
-          return film;
-        }
-      }),
-    ).then(films => updateGalleryMarkup(films));
-    api.page += 1;
-  }
-});
 
-pagination.on('afterMove', function (evt) {
-  console.log(evt.page);
-});
+const addItems = array => {
+  if (
+    document.documentElement.clientWidth >= 320 &&
+    document.documentElement.clientWidth < 768
+  ) {
+    return array.map(film => film).slice(0, 4);
+  }
+  if (
+    document.documentElement.clientWidth >= 768 &&
+    document.documentElement.clientWidth < 1024
+  ) {
+    return array.map(film => film).slice(0, 8);
+  }
+  if (document.documentElement.clientWidth >= 1024) {
+    return array.map(film => film).slice(0, 9);
+  }
+};
+
+const addPagination = () => {
+  const pagination = new Pagination('pagination', options);
+  pagination.on('beforeMove', async evt => {
+    const { page } = evt;
+    const data = await api.getUpdatedFilms(api.getUrl(page).popylarFilmsUrl);
+    const results = addItems(data);
+    console.log(results);
+    if (results) {
+      refs.gallery.innerHTML = '';
+
+      refs.spinner.classList.remove('hide');
+      window.scrollTo({
+        top: document.documentElement.offsetHeight,
+        behavior: 'smooth',
+      });
+      updateGalleryMarkup(results);
+      refs.spinner.classList.add('hide');
+    } else {
+      return false;
+    }
+  });
+};
+
+const start = async () => {
+  const { data } = await axios.get(api.getUrl(startPage).popylarFilmsUrl);
+  const { total_pages } = await data;
+  options.totalItems = total_pages;
+
+  addPagination();
+};
+
+start();
+
+export { startPage, addItems };

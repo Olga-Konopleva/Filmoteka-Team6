@@ -1,11 +1,10 @@
-import notification from './notification';
 import refs from './refs';
 
 const getListFilmsQueue = () => {
   const currentList = localStorage.getItem('queue');
-  
+
   const queue = JSON.parse(currentList);
-  if(!queue){
+  if (!queue) {
     return;
   }
   const listQueue = queue.map(item => {
@@ -28,7 +27,6 @@ const updateList = (currentList, id) => {
   const filmToAdd = { filmQueue: id };
   queue.push(filmToAdd);
   localStorage.setItem('queue', JSON.stringify(queue));
-  notification.infoLiberyMessage();
 };
 const addFilmHandlerQueue = id => {
   const currentList = localStorage.getItem('queue');
@@ -38,8 +36,6 @@ const addFilmHandlerQueue = id => {
   } else {
     if (chekDuplicates(id)) {
       updateList(currentList, id);
-    } else {
-      notification.duplicateMessage();
     }
   }
 };
@@ -51,6 +47,5 @@ const deleteFilmHandlerQueue = id => {
   const queue = JSON.parse(currentList);
   queue.splice(indexToDelete, 1);
   localStorage.setItem('queue', JSON.stringify(queue));
-  notification.removeLiberyMessage();
 };
 export { addFilmHandlerQueue, deleteFilmHandlerQueue, getListFilmsQueue };

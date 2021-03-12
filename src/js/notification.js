@@ -1,5 +1,5 @@
 import PNotify from 'pnotify/dist/es/PNotify';
-import PNotifyButton from 'pnotify/dist/es/PNotifyButtons';
+// import PNotifyButton from 'pnotify/dist/es/PNotifyButtons';
 import 'pnotify/dist/PNotifyBrightTheme.css';
 
 const delay = 1000;

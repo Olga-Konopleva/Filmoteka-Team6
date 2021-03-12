@@ -12,12 +12,12 @@ import getImageSize from '../js/image-sizes';
 
 export default {
   searchQuery: '',
-  page: 1,
+
   // Функція повертає об'єкт url для основних запитів
-  get url() {
+  getUrl(page) {
     const urls = {};
-    urls.searchUrl = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query==${this.query}&page=${this.page}&include_adult=false`;
-    urls.popylarFilmsUrl = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${this.page}`;
+    urls.searchUrl = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query==${this.query}&page=${page}&include_adult=false`;
+    urls.popylarFilmsUrl = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`;
     return urls;
   },
 
@@ -39,12 +39,13 @@ export default {
       const films = filmsData.map(({ data }) => data);
       // Для кожного об'єкта оновлюємо необхідну в ньому інформацію
       const updatedFilms = this.updateInfo(films);
-      console.log(updatedFilms);
+      // console.log(updatedFilms);
       return updatedFilms;
     } catch (error) {
       console.log(error);
     }
   },
+
   // Функція повертає всю інформацію по id фільма, знайденого за query
   async getFullFilmsInfo(url) {
     try {
@@ -87,12 +88,12 @@ export default {
       const { data } = await axios.get(
         `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`,
       );
-      console.log(data);
+
       const results = await data;
       //добавила фунцкию для получения ключа для показа трейлера для вывода в шаблон
       const idTrailer = await this.getFilmTrailer(id);
       // const updateFilm = this.updateInfo(results);
-      return { ...results, ...idTrailer };
+      return { idTrailer, ...results };
     } catch (error) {
       console.log(error);
     }
@@ -205,6 +206,6 @@ export default {
     //оставила самый популярный трейлер для показа
     const trailer = results[0];
 
-    return trailer;
+    return trailer.key;
   },
 };
