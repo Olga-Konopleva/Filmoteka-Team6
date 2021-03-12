@@ -3,7 +3,10 @@ import 'firebase/auth';
 import 'firebase/database';
 import refs from './refs';
 import * as auth from './authFirebase';
-import { successAddQueueHandler, successAddWatchedHandler } from './util/success';
+import {
+  successAddQueueHandler,
+  successAddWatchedHandler,
+} from './util/success';
 
 import {
   addFilmHandlerWatched,
@@ -82,8 +85,7 @@ function updateWatchedList(userId, movieId) {
           console.log('DATA UPDATE SUCCESSFULLY');
         }
       },
-  );
-
+    );
 }
 
 //ФУНКЦІЯ ДЛЯ ОНОВЛЕННЯ СПИСКУ АЙДІШНІКІВ В БД
