@@ -20,7 +20,6 @@ function predicationSearch() {
   api.getUpdatedFilms(api.getUrl().searchUrl).then(filmList => {
     refs.searchList.classList.remove('is-hidden');
     if (!filmList.length) {
-      emptyFilmListHandler();
       refs.searchList.classList.add('is-hidden');
       return;
     }
