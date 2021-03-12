@@ -1,6 +1,6 @@
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
-import { error } from '@pnotify/core';
+import { error, info } from '@pnotify/core';
 
 function error404Handler() {
   error({
@@ -27,15 +27,14 @@ function error500Handler() {
 }
 
 function emptyLibrary() {
-  error({
-    text:
-      'No movies have been added yet. Please add something you like to your Library.',
-    delay: 5000,
+  info({
+    text: 'No movies have been added yet.',
+    delay: 1500,
     mouseReset: true,
-    closer: false,
+    closer: true,
     remove: true,
     destroy: true,
   });
 }
 
-export { error404Handler, error500Handler,emptyLibrary };
+export { error404Handler, error500Handler, emptyLibrary };
