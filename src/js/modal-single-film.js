@@ -25,7 +25,7 @@ export function showModal(event) {
   const element = event.target;
   const id = element.dataset.id;
   localStorage.setItem('firebase-id', id);
-  mainFirebase.checkMovieInStorage(id);
+  // mainFirebase.checkMovieInStorage(id);
   // console.log(id);
   apiService
     .showFilmDetails(id)
