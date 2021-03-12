@@ -68,7 +68,7 @@ async function getMoviesWatched(uid = false) {
   if (currentUser) {
     const authoried = await auth.readUserData(uid);
     const data = await authoried.val();
-    watched = await data.watched;
+    watched = await data.watched || [];
   }
   const promises = watched.map(id =>
     api.showFilmDetails(id).then(data => api.updateOneFilmInfo(data)),
@@ -86,7 +86,7 @@ async function getMoviesQueue(uid = false) {
   if (currentUser) {
     const authoried = await auth.readUserData(uid);
     const data = await authoried.val();
-    queued = await data.queue;
+    queued = await data.queue || [];
   }
   const promises = queued.map(id =>
     api.showFilmDetails(id).then(data => api.updateOneFilmInfo(data)),
