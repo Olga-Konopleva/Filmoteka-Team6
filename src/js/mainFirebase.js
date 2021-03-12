@@ -40,9 +40,20 @@ function modalMagic() {
 
 //ФУНКЦІЯ ДЛЯ ПЕРЕВІРКИ ЧИ Є АЙДІШНИК В БД І ВІДПОВІДНО
 //ЯКІ КНОПКИ ПОКАЗУВАТИ В МОДАЛЦІ
-function checkMovieInStorage() {
+function checkMovieInStorage(
+  addBtnWatch,
+  removeBtnWatch,
+  addBtnQueue,
+  removeBtnQueue,
+) {
   let currentUser = firebase.auth().currentUser;
   if (!currentUser) {
+    checkMovieInLocalStorage(
+      addBtnWatch,
+      removeBtnWatch,
+      addBtnQueue,
+      removeBtnQueue,
+    );
     return;
   }
 
