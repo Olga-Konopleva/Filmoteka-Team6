@@ -4,6 +4,7 @@ const refs = {
   searchForm: document.querySelector('#search-form'),
   gallery: document.querySelector('.js-gallery'),
   galleryContainer: document.querySelector('.gallery__list'),
+  searchGallery: document.querySelector('.search-list'),
   searchList: document.querySelector('.js-search-list'),
   input: document.querySelector('.js-input'),
   libraryBtn: document.querySelector('#libraryBtn'),

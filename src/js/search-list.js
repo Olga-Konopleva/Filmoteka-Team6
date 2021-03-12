@@ -28,8 +28,8 @@ function predicationSearch () {
     })
 }
 
-const searchGallery = document.querySelector('.search-list');
-searchGallery.addEventListener('click', openModal);
+
+refs.searchGallery.addEventListener('click', openModal);
 
 export function openModal(event) {
   if (event.target.nodeName !== 'LI') {
@@ -38,8 +38,8 @@ export function openModal(event) {
   showModal(event);
 
   MicroModal.show('modal-1', {
-    onShow: modal => console.info(`${modal.id} is shown`), // [1]
-    onClose: modal => console.info(`${modal.id} is hidden`), // [2]
+    // onShow: modal => console.info(`${modal.id} is shown`), // [1]
+    // onClose: modal => console.info(`${modal.id} is hidden`), // [2]
     disableScroll: true, // [6]
     disableFocus: true, // [7]
   });

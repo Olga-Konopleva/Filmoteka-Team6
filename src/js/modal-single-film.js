@@ -17,8 +17,8 @@ export function openModal(event) {
   showModal(event);
   
   MicroModal.show('modal-1', {
-    onShow: modal => console.info(`${modal.id} is shown`), // [1]
-    onClose: modal => console.info(`${modal.id} is hidden`), // [2]
+    // onShow: modal => console.info(`${modal.id} is shown`), // [1]
+    // onClose: modal => console.info(`${modal.id} is hidden`), // [2]
     disableScroll: true, // [6]
     disableFocus: true, // [7]
   })
