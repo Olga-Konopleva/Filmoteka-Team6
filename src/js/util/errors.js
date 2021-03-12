@@ -26,4 +26,16 @@ function error500Handler() {
   });
 }
 
-export { error404Handler, error500Handler };
+function emptyLibrary() {
+  error({
+    text:
+      'No movies have been added yet. Please add something you like to your Library.',
+    delay: 5000,
+    mouseReset: true,
+    closer: false,
+    remove: true,
+    destroy: true,
+  });
+}
+
+export { error404Handler, error500Handler,emptyLibrary };

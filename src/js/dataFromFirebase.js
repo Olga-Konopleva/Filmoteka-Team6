@@ -12,6 +12,10 @@ import {
   warningRemoveWatchedHandler,
 } from './util/warnings';
 
+import {
+emptyLibrary
+} from './util/errors';
+
 import api from '../apiServises/api';
 
 import {
@@ -70,6 +74,9 @@ async function getMoviesWatched(uid = false) {
     const data = await authoried.val();
     watched = await data.watched || [];
   }
+   if (watched.length === 0) {
+    setTimeout(emptyLibrary, 300);
+  }
   const promises = watched.map(id =>
     api.showFilmDetails(id).then(data => api.updateOneFilmInfo(data)),
   );
@@ -87,6 +94,10 @@ async function getMoviesQueue(uid = false) {
     const authoried = await auth.readUserData(uid);
     const data = await authoried.val();
     queued = await data.queue || [];
+  }
+  
+  if (queued.length === 0) {
+    setTimeout(emptyLibrary, 300);
   }
   const promises = queued.map(id =>
     api.showFilmDetails(id).then(data => api.updateOneFilmInfo(data)),
