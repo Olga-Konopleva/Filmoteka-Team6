@@ -13,6 +13,7 @@ import {
 } from './util/warnings';
 
 import api from '../apiServises/api';
+import noFilmTemplate from '../templates/no-film.hbs';
 
 import {
   addFilmHandlerWatched,
@@ -68,8 +69,14 @@ async function getMoviesWatched(uid = false) {
   if (currentUser) {
     const authoried = await auth.readUserData(uid);
     const data = await authoried.val();
-    watched = await data.watched || [];
+    watched = (await data.watched) || [];
   }
+  if (!watched || watched.length === 0) {
+    const markup = noFilmTemplate();
+    refs.gallery.insertAdjacentHTML('beforeend', markup);
+    return;
+  }
+
   const promises = watched.map(id =>
     api.showFilmDetails(id).then(data => api.updateOneFilmInfo(data)),
   );
@@ -86,7 +93,12 @@ async function getMoviesQueue(uid = false) {
   if (currentUser) {
     const authoried = await auth.readUserData(uid);
     const data = await authoried.val();
-    queued = await data.queue || [];
+    queued = (await data.queue) || [];
+  }
+  if (!queued || queued.length === 0) {
+    const markup = noFilmTemplate();
+    refs.gallery.insertAdjacentHTML('beforeend', markup);
+    return;
   }
   const promises = queued.map(id =>
     api.showFilmDetails(id).then(data => api.updateOneFilmInfo(data)),
