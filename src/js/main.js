@@ -9,6 +9,7 @@ refs.homeBtn.addEventListener('click', handlePopularFilmsByClick);
 function handlePopularFilmsByClick() {
   refs.gallery.innerHTML = '';
   refs.spinner.classList.remove('hide');
+  refs.paginator.classList.remove('hide');
   // apiService.resetPage();
   loadPopularFilms();
 }
@@ -21,6 +22,7 @@ async function loadPopularFilms() {
   updateGalleryMarkup(results);
   refs.spinner.classList.add('hide');
   refs.spinnerInversion.classList.add('hide');
+  refs.paginator.classList.remove('hide');
 }
 
 loadPopularFilms();
