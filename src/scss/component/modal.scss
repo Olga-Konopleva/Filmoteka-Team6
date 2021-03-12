@@ -82,10 +82,10 @@ z-index: 1000;
       border-radius: 5px;
   }
 
- @include for-size(tablet) {
-  width: 264px;
-  height: 373px;
- }  
+  @include for-size(tablet) {
+    width: 264px;
+    height: 373px;
+  }
 
  @include for-size(desktop) {
 min-width: 360px;
@@ -188,6 +188,10 @@ min-width: 360px;
   height: 30px;
   background: transparent;
   border: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .modal__button-container {
@@ -206,6 +210,7 @@ min-width: 360px;
   border: 1px solid $black;
   border-radius: 5px;
   cursor: pointer;
+  transition: all $transition;
 
   padding-left: 6px;
   padding-right: 6px;
@@ -254,7 +259,6 @@ background-color: $orange-secondary;
   right: 15px;
   bottom: 50px; 
 }
-
 
 // .modal__btn {
 //   font-size: .875rem;

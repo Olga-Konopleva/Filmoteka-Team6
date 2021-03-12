@@ -7,18 +7,20 @@ export function showTrailer() {
   const buttonCloseRef = container.querySelector('button[data-action=close]');
   const backdropRef = container.querySelector('.trailer-backdrop');
   const trailerModalContainer = container.querySelector('.trailer');
+  const video = container.querySelector('.video');
+  const videoSrc = video.src;
 
-  console.log(trailerModalContainer);
   buttonOpenRef.addEventListener('click', onOpenModal);
   buttonCloseRef.addEventListener('click', onCloseModal);
   backdropRef.addEventListener('click', onBackDropClick);
 
   function onOpenModal() {
-    console.log(trailerModalContainer);
+    video.src = videoSrc;
     trailerModalContainer.classList.add('show-modal');
   }
 
   function onCloseModal() {
+    video.src = '';
     trailerModalContainer.classList.remove('show-modal');
   }
 

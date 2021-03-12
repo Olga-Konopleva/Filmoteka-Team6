@@ -2,12 +2,12 @@
     <header class="modal__header">
         <button class="modal__close" aria-label="Close modal" aria-controls="modal__container1"
             data-micromodal-close></button>
-<picture class="modal__img" >
-    <source srcset="{{poster_path}}" media="(min-width: 1200px)" />
-    <source srcset="{{poster_path}}" media="(min-width: 768px)" />
-    <source srcset="{{poster_path}}" media="(max-width: 767px)" />
-    <img class="modal__img" src="{{poster_path}}" alt="poster {{original_title}}" />
-</picture>
+        <picture class="modal__img">
+            <source srcset="{{poster_path}}" media="(min-width: 1200px)" />
+            <source srcset="{{poster_path}}" media="(min-width: 768px)" />
+            <source srcset="{{poster_path}}" media="(max-width: 767px)" />
+            <img class="modal__img" src="{{poster_path}}" alt="poster {{original_title}}" />
+        </picture>
         {{!-- <img class="modal__img" src='{{poster_path}}' alt='poster {{original_title}}'> --}}
 
     </header>
@@ -53,10 +53,10 @@
 <div class="trailer">
     <div class="trailer-backdrop">
         <div class="trailer-modal">
-            <iframe src="https://www.youtube.com/embed/{{key}}?autoplay=1" frameborder="0" allowfullscreen>
+            <iframe class="video" src="https://www.youtube.com/embed/{{key}}" frameborder="0" allowfullscreen>
             </iframe>
 
-            <button data-action="close" class="film-trailer-close">Close trailer</button>
+            <button data-action="close" class="film-trailer-close"></button>
         </div>
     </div>
 </div>
