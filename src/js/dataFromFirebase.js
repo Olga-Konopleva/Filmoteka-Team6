@@ -7,14 +7,24 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 import refs from './refs.js';
 import * as auth from './authFirebase';
 import * as dataToFirebase from './dataToFirebase.js';
-
+import { warningRemoveQueueHandler,warningRemoveWatchedHandler } from './util/warnings';
 
 import api from '../apiServises/api';
+
+import {
+  addFilmHandlerWatched,
+  deleteFilmHandlerWatched,
+  getListFilmsWatched,
+} from './localStorageWatched';
+import {
+  addFilmHandlerQueue,
+  deleteFilmHandlerQueue,
+  getListFilmsQueue,
+} from './localStorageQueue';
 
 //ФУКНЦІЯ ЯКА ПЕРЕВІРЯЄ ЧИ Є В БД АЙДІШНИК ПО ЯКОМУ КЛІКНУЛИ
 //І РОБИТЬ ВІДПОВІДНІ СТИЛІ ДЛЯ КНОПОК
 function setModalBtnWatchStyles(event, button, hiddenBtn) {
-
   if (event.target === button) {
     button.classList.add('hide');
     hiddenBtn.classList.remove('hide');
@@ -47,10 +57,16 @@ function setModalBtnQueueStyles(event, button, hiddenBtn) {
 
 // ФУНКЦІЯ ДЛЯ ЩОБ ОТРИМАТИ АЙДІШНИКИ З БД І ПО НИМ ЗРОБИТИ ЗАПИТ НА СЕРВЕР
 // ТА ВІД РЕНДЕРИТИ РОЗМІТКУ ПО ОТРИМАНИХ ДАННИХ
-async function getMoviesWatched(uid) {
-  const authoried = await auth.readUserData(uid);
-  const data = await authoried.val();
-  const watched = await data.watched;
+async function getMoviesWatched(uid = false) {
+  const currentUser = firebase.auth().currentUser;
+  // console.log(currentUser);
+  let watched = getListFilmsWatched();
+
+  if (currentUser) {
+    const authoried = await auth.readUserData(uid);
+    const data = await authoried.val();
+    watched = await data.watched;
+  }
   const promises = watched.map(id =>
     api.showFilmDetails(id).then(data => api.updateOneFilmInfo(data)),
   );
@@ -60,10 +76,15 @@ async function getMoviesWatched(uid) {
   return updatedWatched;
 }
 
-async function getMoviesQueue(uid) {
-  const authoried = await auth.readUserData(uid);
-  const data = await authoried.val();
-  const queued = await data.queue;
+async function getMoviesQueue(uid = false) {
+  const currentUser = firebase.auth().currentUser;
+  let queued = getListFilmsQueue();
+
+  if (currentUser) {
+    const authoried = await auth.readUserData(uid);
+    const data = await authoried.val();
+    queued = await data.queue;
+  }
   const promises = queued.map(id =>
     api.showFilmDetails(id).then(data => api.updateOneFilmInfo(data)),
   );
@@ -71,10 +92,7 @@ async function getMoviesQueue(uid) {
   const updatedQueued = await Promise.all(promises);
   console.log(updatedQueued);
   return updatedQueued;
-
-
 }
-
 
 // ФУНКЦІЯ ЯКА ЧИСТИТЬ РОЗМІТКУ
 // ВИДАЛЯЄ АЙДІШНИК ФІЛЬМА НА ЯКОМУ КЛІКНУЛИ КНОПКУ З БД
@@ -101,7 +119,11 @@ function removeFromWatch() {
         }
       });
     // console.log(watched);
+  } else {
+    let movieId = localStorage.getItem('firebase-id');
+    deleteFilmHandlerWatched(movieId);
   }
+  setTimeout(warningRemoveWatchedHandler, 300);
 }
 
 function removeFromQueue() {
@@ -126,10 +148,12 @@ function removeFromQueue() {
         }
       });
     // console.log(queue);
+  } else {
+    let movieId = localStorage.getItem('firebase-id');
+    deleteFilmHandlerQueue(movieId);
   }
+  setTimeout(warningRemoveQueueHandler, 300);
 }
-
-
 
 export {
   getMoviesWatched,

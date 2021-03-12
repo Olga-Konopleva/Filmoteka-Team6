@@ -3,6 +3,18 @@ import 'firebase/auth';
 import 'firebase/database';
 import refs from './refs';
 import * as auth from './authFirebase';
+import { successAddQueueHandler, successAddWatchedHandler } from './util/success';
+
+import {
+  addFilmHandlerWatched,
+  deleteFilmHandlerWatched,
+  getListFilmsWatched,
+} from './localStorageWatched';
+import {
+  addFilmHandlerQueue,
+  deleteFilmHandlerQueue,
+  getListFilmsQueue,
+} from './localStorageQueue';
 
 //ЗБЕРЕЖЕННЯ АЙДІШНІКА В БД
 function addToWatch() {
@@ -22,7 +34,11 @@ function addToWatch() {
         }
         updateWatchedList(uid, [...watched, movieId]);
       });
+  } else {
+    let movieId = localStorage.getItem('firebase-id');
+    addFilmHandlerWatched(movieId);
   }
+  setTimeout(successAddWatchedHandler, 300);
 }
 
 //ЗБЕРЕЖЕННЯ АЙДІШНІКА В БД
@@ -43,7 +59,11 @@ function addToQueue() {
         }
         updateQueueList(uid, [...queue, movieId]);
       });
+  } else {
+    let movieId = localStorage.getItem('firebase-id');
+    addFilmHandlerQueue(movieId);
   }
+  setTimeout(successAddQueueHandler, 300);
 }
 
 //ФУНКЦІЯ ДЛЯ ОНОВЛЕННЯ СПИСКУ АЙДІШНІКІВ В БД
@@ -62,7 +82,8 @@ function updateWatchedList(userId, movieId) {
           console.log('DATA UPDATE SUCCESSFULLY');
         }
       },
-    );
+  );
+
 }
 
 //ФУНКЦІЯ ДЛЯ ОНОВЛЕННЯ СПИСКУ АЙДІШНІКІВ В БД

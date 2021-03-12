@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { error404Handler, error500Handler } from '../js/util/errors';
 import {
   API_KEY,
   BASE_URL,
@@ -22,6 +23,16 @@ export default {
 
   async getUpdatedFilms(url) {
     try {
+      // 404, 500 Error Handlers
+      const request = await axios.get(url);
+
+      if (request.status === 404) {
+        error404Handler();
+      }
+      if (request.status === 500) {
+        error500Handler();
+      }
+
       // отримуємо масив результатів запитів для отримання повної інформації про фільми
       const filmsData = await this.getFullFilmsInfo(url);
       // проходимося по отриманому масиві і вибираємо всі об'єкти з повною інформацією про фільми
@@ -37,6 +48,15 @@ export default {
   // Функція повертає всю інформацію по id фільма, знайденого за query
   async getFullFilmsInfo(url) {
     try {
+      // 404, 500 Error Handlers
+      const request = await axios.get(url);
+
+      if (request.status === 404) {
+        error404Handler();
+      }
+      if (request.status === 500) {
+        error500Handler();
+      }
       // Вибираємо id всіх отриманих об'єктів масиву за певним запитом
       const idList = await this.getFilmiIdList(url);
       // для кожного об'єкта, за його id, робимо ще один запит для отримання повної інформації про фільм
@@ -67,6 +87,7 @@ export default {
       const { data } = await axios.get(
         `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`,
       );
+      console.log(data);
       const results = await data;
       //добавила фунцкию для получения ключа для показа трейлера для вывода в шаблон
       const idTrailer = await this.getFilmTrailer(id);
@@ -127,6 +148,15 @@ export default {
   // Функція повертає id всіх фільмів
   async getFilmiIdList(url) {
     try {
+      // 404, 500 Error Handlers
+      const request = await axios.get(url);
+      if (request.status === 404) {
+        error404Handler();
+      }
+      if (request.status === 500) {
+        error500Handler();
+      }
+
       const { data } = await axios.get(url);
       const { results } = await data;
       const filmIdList = results.map(({ id }) => id);

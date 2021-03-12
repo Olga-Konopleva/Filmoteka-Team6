@@ -24,7 +24,7 @@ export function openModal(event) {
   })
 };
 
-function showModal(event) {
+export function showModal(event) {
   const element = event.target;
   const id = element.dataset.id;
   localStorage.setItem('firebase-id', id);

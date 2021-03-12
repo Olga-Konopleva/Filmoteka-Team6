@@ -59,6 +59,8 @@
     "micromodal": "^0.4.6",
     "paginationjs": "^2.1.5",
     "spin.js": "^4.1.0",
-    "tui-pagination": "^3.4.0"
+    "tui-pagination": "^3.4.0",
+    "vanilla-back-to-top": "^7.2.1",
+    "pnotify": "^4.0.1"
   }
 }

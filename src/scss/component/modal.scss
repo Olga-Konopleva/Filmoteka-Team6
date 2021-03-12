@@ -6,7 +6,7 @@
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
     helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   color: $black;
-  z-index: 2;
+z-index: 1000;
 }
 
 .modal__overlay {
@@ -21,6 +21,7 @@
   justify-content: center;
   align-items: center;
   overflow-y: scroll;
+  overflow-x: hidden;;
 }
 
 .modal__container {
@@ -50,13 +51,10 @@
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 50px;
-    padding-bottom: 102px;
+    // padding-bottom: 102px;
     max-width: 882px;
     max-height: 568px;
   }
-
-  overflow-y: auto;
-  box-sizing: border-box;
 }
 
 .modal__document {
@@ -67,20 +65,21 @@
 
 .modal__header {
   @include for-size(mobile) {
-    min-width: 240px;
-  }
-  @include for-size(tablet) {
-    min-width: 264px;
-  }
-  @include for-size(desktop) {
-    min-width: 370px;
-  }
+  min-width: 240px;
+}
+@include for-size(tablet) {
+  min-width: 264px;
+}
+@include for-size(desktop) {
+  min-width: 360px;
+}
 }
 
 .modal__img {
   @include for-size(mobile) {
-    width: 240px;
-    border-radius: 5px;
+      width: 240px;
+      height: 356px;
+      border-radius: 5px;
   }
 
   @include for-size(tablet) {
@@ -88,10 +87,10 @@
     height: 373px;
   }
 
-  @include for-size(desktop) {
-    min-width: 370px;
-    height: 410px;
-  }
+ @include for-size(desktop) {
+min-width: 360px;
+    height: 477px;
+ }
 }
 
 .modal__content {
@@ -201,7 +200,7 @@
   }
 }
 
-.modal__button {
+.modal__button1 {
   font-family: $font;
   font-weight: 500;
   font-size: 12px;
@@ -233,16 +232,32 @@
   }
 }
 
-.modal__button:focus,
-.modal__button:hover {
+.modal__button1:focus,
+.modal__button1:hover
+ {
   background-color: $orange-secondary;
   color: $white;
   transform: scale(1.05);
   border: 1px solid $orange-secondary;
 }
 
+.modal__button2 {
+background-color: $orange-secondary;
+  color: $white;
+  border: 1px solid $orange-secondary;
+}
+.modal__button2:focus {
+  border: 1px solid $orange-secondary;
+}
+
+
 .modal__header .modal__close:before {
   content: '\2715';
+}
+
+#back-to-top {
+  right: 15px;
+  bottom: 50px; 
 }
 
 // .modal__btn {
