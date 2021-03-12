@@ -7,8 +7,8 @@ function footerModalHandler(selector) {
 
   function onOpen() {
     MicroModal.show('modal-footer', {
-      onShow: modal => console.info(`${modal.id} is shown`), // [1]
-      onClose: modal => console.info(`${modal.id} is hidden`), // [2]
+      // onShow: modal => console.info(`${modal.id} is shown`), // [1]
+      // onClose: modal => console.info(`${modal.id} is hidden`), // [2]
       disableScroll: true, // [6]
       disableFocus: true, // [7]
     });
