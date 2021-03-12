@@ -1,7 +1,7 @@
 import apiService from '../apiServises/api';
 import updateGalleryMarkup from './update-markup';
 import refs from './refs';
-import { addItems, startPopularPagination } from './pagination';
+import { addItems, startPagination } from './pagination';
 
 refs.logoBtn.addEventListener('click', handlePopularFilmsByClick);
 refs.homeBtn.addEventListener('click', handlePopularFilmsByClick);
@@ -26,7 +26,8 @@ async function loadPopularFilms() {
   updateGalleryMarkup(results);
   refs.spinner.classList.add('hide');
   refs.spinnerInversion.classList.add('hide');
+  refs.paginator.classList.remove('hide');
 }
 
 loadPopularFilms();
-startPopularPagination();
+startPagination('popylarFilmsUrl');

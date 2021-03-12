@@ -20,16 +20,33 @@ function showMyLibrary() {
 
 // РЕНДЕР ПЕРЕГЛЯНУТИХ ПО АЙДІШНИКАХ З БД
 function renderWatched() {
+  refs.paginator.classList.add('hide');
+    const theme = localStorage.getItem('Theme');
+  if (theme === 'light-theme') {
+    refs.spinner.classList.remove('hide');
+  } else {
+    refs.spinnerInversion.classList.remove('hide');
+  }
   onActive();
   refs.gallery.innerHTML = '';
   if (firebase.auth().currentUser) {
     dataFromFirebase
       .getMoviesWatched(firebase.auth().currentUser.uid)
-      .then(films => updateGalleryMarkup(films));
+      .then(films => {
+        updateGalleryMarkup(films)
+      })
+      .finally(() => {
+        refs.spinner.classList.add('hide');
+        refs.spinnerInversion.classList.add('hide');
+      });
   } else {
     dataFromFirebase
       .getMoviesWatched()
-      .then(films => updateGalleryMarkup(films));
+      .then(films => updateGalleryMarkup(films))
+      .finally(() => {
+        refs.spinner.classList.add('hide');
+        refs.spinnerInversion.classList.add('hide');
+    });
   }
 
   // const movieCard = document.querySelector('.movie-card')
@@ -38,14 +55,30 @@ function renderWatched() {
 
 // РЕНДЕР ТИХ ШО В ЧЕРЗІ ПО АЙДІШНИКАХ З БД
 function renderQueue() {
+
+  const theme = localStorage.getItem('Theme');
+  if (theme === 'light-theme') {
+    refs.spinner.classList.remove('hide');
+  } else {
+    refs.spinnerInversion.classList.remove('hide');
+  }
   addActive();
   refs.gallery.innerHTML = '';
   if (firebase.auth().currentUser) {
     dataFromFirebase
       .getMoviesQueue(firebase.auth().currentUser.uid)
-      .then(films => updateGalleryMarkup(films));
+      .then(films => updateGalleryMarkup(films))
+      .finally(() => {
+        refs.spinner.classList.add('hide');
+        refs.spinnerInversion.classList.add('hide');
+    });
   } else {
-    dataFromFirebase.getMoviesQueue().then(films => updateGalleryMarkup(films));
+    dataFromFirebase.getMoviesQueue()
+      .then(films => updateGalleryMarkup(films))
+      .finally(() => {
+        refs.spinner.classList.add('hide');
+        refs.spinnerInversion.classList.add('hide');
+    });
   }
 }
 
