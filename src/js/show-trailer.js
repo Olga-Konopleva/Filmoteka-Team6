@@ -9,10 +9,12 @@ export function showTrailer() {
   const trailerModalContainer = container.querySelector('.trailer');
   const video = container.querySelector('.video');
   const videoSrc = video.src;
+  const modalOverlay = document.querySelector('.modal__overlay');
 
   buttonOpenRef.addEventListener('click', onOpenModal);
   buttonCloseRef.addEventListener('click', onCloseModal);
   backdropRef.addEventListener('click', onBackDropClick);
+  modalOverlay.addEventListener('click', onBackDropClick);
 
   function onOpenModal() {
     video.src = videoSrc;

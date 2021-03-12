@@ -88,12 +88,12 @@ export default {
       const { data } = await axios.get(
         `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`,
       );
-      console.log(data);
+
       const results = await data;
       //добавила фунцкию для получения ключа для показа трейлера для вывода в шаблон
       const idTrailer = await this.getFilmTrailer(id);
       // const updateFilm = this.updateInfo(results);
-      return { ...results, ...idTrailer };
+      return { idTrailer, ...results };
     } catch (error) {
       console.log(error);
     }
@@ -206,6 +206,6 @@ export default {
     //оставила самый популярный трейлер для показа
     const trailer = results[0];
 
-    return trailer;
+    return trailer.key;
   },
 };

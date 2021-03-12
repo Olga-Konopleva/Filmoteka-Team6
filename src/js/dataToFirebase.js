@@ -22,11 +22,11 @@ import {
 //ЗБЕРЕЖЕННЯ АЙДІШНІКА В БД
 function addToWatch() {
   const currentUser = firebase.auth().currentUser;
-  //   console.log(currentUser);
+
   if (currentUser) {
     let uid = currentUser.uid;
     let movieId = localStorage.getItem('firebase-id');
-    // console.log(movieId);
+
     auth
       .readUserData(uid)
       .then(data => data.val())
@@ -47,11 +47,10 @@ function addToWatch() {
 //ЗБЕРЕЖЕННЯ АЙДІШНІКА В БД
 function addToQueue() {
   const currentUser = firebase.auth().currentUser;
-  // console.log(currentUser);
   if (currentUser) {
     let uid = currentUser.uid;
     let movieId = localStorage.getItem('firebase-id');
-    // console.log(movieId);
+
     auth
       .readUserData(uid)
       .then(data => data.val())
