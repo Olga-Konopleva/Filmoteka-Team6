@@ -22,11 +22,8 @@ const addPaginationButtons = () => {
   if (screenSize >= 320 && screenSize < 768) {
     return (options.visiblePages = 3);
   }
-  if (screenSize >= 768 && screenSize < 1024) {
-    return (options.visiblePages = 6);
-  }
-  if (screenSize >= 1024) {
-    return (options.visiblePages = 9);
+  if (screenSize >= 768) {
+    return (options.visiblePages = 7);
   }
 };
 

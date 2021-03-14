@@ -52,9 +52,9 @@
 .tui-pagination .tui-page-btn {
   display: inline-block;
   position: relative;
-  width: 40px !important;
-  height: 40px !important;
-  padding: 14px !important;
+  width: 30px !important;
+  height: 30px !important;
+  padding: 10px !important;
   border-radius: 5px;
   margin-left: 0;
   color: #333;
@@ -66,6 +66,11 @@
   /* border: 1px solid #ddd; */
   border: none !important;
   border-width: 1px 0;
+  @include for-size(tablet) {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 14px !important;
+  }
 }
 
 .tui-pagination .tui-page-btn:hover {
